@@ -1,0 +1,110 @@
+*{margin: 0;padding: 0}
+html,body{background-color: #2a323d;color: #ffffff;width: 100%;height: 100%;font-size: 20px}
+.tab-content-top{height: 60%; }
+.changecode{width: 100%;}
+.part4-text{margin: 10px auto; width: 90%; font-size: .7rem; }
+.audit-form{
+    margin: 10px 0 20px 60px;
+}
+.audit-relative{position: relative; font-size: .7rem ;height: 40px}
+.audit-relative-bott{
+    position: relative;
+}
+.audit-title{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 4px;
+    font-size: .7rem;
+}
+.level-posi{
+    position: absolute;
+    top:4px;
+    left: 100px;
+}
+.level-posi input{
+   visibility: hidden;
+}
+.level-posi label{
+   position: absolute;
+    top:4px;
+    left: 6px;
+    width: 14px;
+    height: 14px;
+    background: url("../Images/radio.png") no-repeat;
+    background-position: 0 0;
+}
+.level-posi input[type=radio]:checked+label{
+    background: url("../Images/radio.png") no-repeat;
+    background-position: 0 -40px;
+}
+.grade-cla{
+    margin-left: 10px;
+    margin-top: 6px;
+}
+
+.text-area{
+    width:300px;
+    font-size: .7rem;
+    margin-left: 100px;
+    max-width: 400px;
+    min-height: 60px;
+    background-color: #1f2938;
+    border-radius: 4px;
+}
+.sub{
+    margin-left: 236px;
+    background-color: #2a323d;
+    border:1px solid #ffffff;
+    font-size: .7rem;
+    padding: 2px 10px;
+    border-radius: 4px;
+}
+.tabsT{
+	height:27px;
+}
+/******************下面滚动条样式*******************/
+.tab-content-bottom{
+    height: calc(40% - 27px);
+    position: relative;
+}
+
+
+.scroll-right{
+    width:100%;
+    height:100%;
+    position: absolute;
+    left: 0;
+    top:0;
+    overflow-y: auto;
+    overflow-x: auto;
+    color: #ffffff;
+}
+.scroll-right::-webkit-scrollbar{
+    background-color: #3a80a7;
+    width: 10px;
+    height:10px ;
+}
+.scroll-right::-webkit-scrollbar-thumb{
+    background-color: #114867;
+    border-radius: 6px;
+}
+.scroll-right::-webkit-scrollbar-corner{
+    background-color: #3a80a7;
+}
+/******************下面滚动条样式*******************/
+/*表格样式*/
+.fixed-table-container thead th .th-inner {
+    padding: 6px;
+    line-height: 16px;
+
+}
+#pre{padding: 0px;margin: 0px;color: #fff;border: 0px;background-color: #2a323d;border-radius: 0px}
+
+
+

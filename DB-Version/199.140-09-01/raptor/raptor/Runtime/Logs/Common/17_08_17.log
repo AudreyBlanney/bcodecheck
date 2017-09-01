@@ -1,0 +1,12 @@
+[ 2017-08-17T09:13:53+08:00 ] 127.0.0.1 /index.php?s=/images/favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000110s ]
+ERR: 无法加载模块:Images
+
+[ 2017-08-17T09:17:13+08:00 ] 127.0.0.1 /index.php?s=/favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000082s ]
+ERR: 无法加载模块:Favicon
+

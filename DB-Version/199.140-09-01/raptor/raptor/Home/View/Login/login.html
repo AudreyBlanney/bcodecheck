@@ -1,0 +1,44 @@
+<include file="raptor/Home/View/Header/header_not_login.html" />
+<link rel="stylesheet" href="__PUBLIC__/Css/signin.css">
+<div class="container">
+    <div class="row main">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <h2 class="title">欢迎使用<br>匠迪代码安全审查系统</h2>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <form action= "" id="form" onsubmit="return false">
+                <div class="xddw message">
+                    <span>用户名：</span>
+                    <input type="text" name="user_name" placeholder="请输入用户名/手机号/邮箱" class="message-input">
+                    <p class="warning"></p>
+                </div>
+
+                <div class="xddw message">
+                    <span>密码：</span>
+                    <input type="password" name="password" placeholder="请输入密码" class="message-input">
+                    <p class="warning warning_err"></p>
+                </div>
+
+                <div class="xddw message">
+                    <span>验证码：</span>
+                    <input type="text" id="inputCode" placeholder="输入验证码" class="message-input" style="width: 45%">
+                    <div class="code" id="checkCode" onclick="createCode()" ></div>
+                    <p class="warning login_code"></p>
+                </div>
+
+                <div class="xddw message">
+                    <button class="register" type="submit" type = "button">登&nbsp;&nbsp;陆</button>
+                </div>
+                <div class="xddw message" style="font-size: 12px">
+                    <span ><a href="{:U('Signin/signin')}">注册新用户</a></span>
+                    <span style="left: 76%"><a href="{:U('Backpwd/backpwd')}">忘记密码？</a></span>
+                </div>
+
+                <p style = "width:440px;font-size:14px;text-align:center;color:#22a8de">(建议使用谷歌浏览器)</p>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="__PUBLIC__/Js/login.js"></script>
+</body>
+</html>

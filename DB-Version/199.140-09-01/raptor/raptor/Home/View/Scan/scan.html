@@ -1,0 +1,87 @@
+<include file="raptor/Home/View/Header/header.html" />
+<link rel="stylesheet" href="__PUBLIC__/Css/codescan.css">
+<div class="container">
+    <div class="row ">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><h3>您创建了<span style="color: #65b6fc">{$scan_result['scan_num']}</span>个检测工程</span></h3></div>
+        <div class=" col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8 codemap">
+            <p class="right-bottom"><span></span></p>
+            <p class="left-bottom"><span></span></p>
+
+
+            <div class="mt">
+                <h4>检测工程统计</h4>
+                <span style="width: 14px;height: 14px;margin-left: -7px;top:40px"></span>
+                <span style="width: 10px;height: 10px;margin-left: -5px;top:60px"></span>
+                <span style="width: 6px;height: 6px;margin-left: -3px;top:78px"></span>
+                <span style="width: 4px;height: 4px;margin-left: -2px;top:94px"></span>
+            </div>
+
+            <div class="lt sxzy">
+                <div class="sxzy-text" style="right: 30px;border-bottom: 1px solid #3f7178">
+                    <label style="top:-4px;background-color: #1d4149;">总共缺陷个数</label>
+                    <strong style="color: #1fd931;top:30px">{$scan_result['leak_num']}个</strong>
+                </div>
+                <span></span>
+
+            </div>
+            <div class="rt sxzy">
+                <div class="sxzy-text" style="left:30px;border-bottom: 1px solid #156f9e">
+                    <label style="top:-4px;background-color: #156189">总共代码检测行数</label>
+                    <strong style="color: #c1d91f;top:30px">{$scan_result['code_line_num']}行</strong>
+                </div>
+                <span></span>
+
+            </div>
+            <div class="lb sxzy">
+                <div class="sxzy-text" style="right:30px;border-top:1px solid #156f9e">
+                    <label style="bottom:-8px;background-color: #156189">监测语言种类</label>
+                    <strong style="color: #c1d91f;top:-30px">{$scan_result['leak_file_num']}类</strong>
+                </div>
+                <span></span>
+
+            </div>
+
+            <div class="rb sxzy">
+                <div class="sxzy-text" style="left:30px;border-top:1px solid #1d4149">
+                    <label style="bottom:-8px;background-color: #1d4149;">发现缺陷种类</label>
+                    <strong style="color: #1fd931;top:-30px">{$scan_result['leak_defect_num']}种</strong>
+                </div>
+                <span></span>
+
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h3>开始扫描---->请上传一个<span style="color: #14851f">zip</span>压缩包</span></h3>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12  uploading">
+            <div class="file-container">
+
+
+                <form action="/raptor/upload" method="POST" enctype="multipart/form-data" id="postForm"  onsubmit="return false" >
+                    <input type="hidden" name="user_id" value="{$_SESSION['user_id']}">
+                    <span class="task-name">任务名称</span>
+                    <input type="text" placeholder="任务名称" id="scan_name" name="scan_name" class="task-input" maxlength="20">
+                    <div class="file-con">
+                        <a class="file">选择文件
+                            <input type="file" name="file" required="required" multiple="" class="form-control" id="f js-upload-files" accept="aplication/zip">
+                        </a>
+                        <p class="showfilemessage"></p>
+                    </div>
+                    <button type="submit" class="sub-button btn btn-sm btn-primary form-inline" id="js-upload-submit">上传扫描</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bar-con">
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" >
+
+                </div>
+            </div>
+            <p class="percent" style="color: #8b8b8b;font-size: 1.2rem">0% </p>
+        </div>
+    </div>
+</div>
+<script src="__PUBLIC__/Js/scan.js"></script>
+</body>
+</html>
+

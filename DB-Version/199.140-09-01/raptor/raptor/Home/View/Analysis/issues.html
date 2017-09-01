@@ -1,0 +1,22 @@
+<include file="raptor/Home/View/Header/header.html" />
+<div class="container">
+    <div class="row rowpiece">
+        <div class="col-xs-4 col-sm-2 col-md-2 col-lg-1 subhead" ><a id="zong" href="{:U('Home/Analysis/issues/info_id/'.$info_id)}" style=" background-color:rgba(34,41,48,.6);">总览视图</a></div>
+        <div class="col-xs-4 col-sm-2 col-md-2 col-lg-1 subhead"><a href="{:U('Home/Analysis/issues_bro/info_id/'.$info_id)}">分览视图</a></div>
+        <div class="col-xs-4 col-sm-2 col-md-2 col-lg-1 subhead"><a href="{:U('Home/Analysis/online/info_id/'.$info_id)}">在线审计</a></div>
+    </div>
+    <div class="row rowpiece">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mainmap" id = "mainmap0"></div>
+    </div>
+    <div class="row rowpiece">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mainmap" id = "mainmap1"></div>
+    </div>
+    <div class="row rowpiece">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mainmap" id = "mainmap2" style="min-height: 400px;"></div>
+    </div>
+</div>
+<script src="__PUBLIC__/Js/echarts.js"></script>
+<script src="__PUBLIC__/Js/dark.js"></script>
+<script src="__PUBLIC__/Js/issues.js"></script>
+</body>
+</html>
