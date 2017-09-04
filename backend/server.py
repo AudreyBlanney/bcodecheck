@@ -104,10 +104,10 @@ def unzip_thread(fname, path='.'):
     def unzip(fname, path='.'):
         try:
             if zipfile.is_zipfile(fname):
-                z = zipfile.ZipFile(fname, 'r')
-                z.extractall(path)
+                z = os.popen('unzip %s -d %s' % (fname,path)).read()
+                #z.extractall(path)
                 #os.remove(fname)
-                re_move_file.Dirs(path)
+                #re_move_file.Dirs(path)
                 return True
             else:
                 return False
