@@ -132,14 +132,14 @@ read -t 30 -p 'Attention: You have 30s to chose which version would you want to 
 case $version in
 L | l )
 echo '### Local version ### chosed ~ Waiting for copying files !'
-cd CodeCheck/Local/
-cp -r frontend/* /var/www/html/raptor
+cd $raptor_path
+cp -r Local/frontend/* /var/www/html/raptor
 echo 'Cpoy Files Successed !!!'
 ;;
 O | o )
 echo '### Online version ### chosed ~ Waiting for copying files !'
-cd CodeCheck/Online/
-cp -r frontend/* /var/www/html/raptor
+cd $raptor_path
+cp -r Online/frontend/* /var/www/html/raptor
 echo 'Cpoy Files Successed !!!'
 ;;
 * )
