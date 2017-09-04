@@ -3,13 +3,19 @@
 import os
 import sys
 import time
+import re
 
 def remove_file(_, path):
     file_types = ['.java','.aspx','.asp','.c','.h','.cpp','.php','.py','.rb','.pl','.xml','.jsp']
     types = os.path.splitext(_)[1]
-    if types not in file_types:
-#        print "删除了文件：%s\n' % path"
-        os.remove(path)
+    filename = os.path.basename(_)
+    chinesefilename = re.search(r'[\u4e00-\u9fa5]', filename, re.U)
+    print chinesefilename
+    if (chinesefilename !=  None) and (types not in file_types):
+	print 'yes'
+	os.remove(path)
+       #print chinesefilename
+       #print "删除了文件：%s\n' % path"
     else :
         return
 
@@ -35,19 +41,8 @@ def Dirs(dir):
             os.remove(path)
 
 
-# if __name__ == '__main__':
-#     Dirs('/tmp')
-
-
-
-
-
-
-
-
-#709db0b7d7bb3a1205342aae80f8a13dd46243abffcb0f0e8a5d86f1
-
-#709db0b7d7bb3a1205342aae80f8a13dd46243abffcb0f0e8a5d86f1
+#if __name__ == '__main__':
+#     Dirs("/home/codecheck1/")
 
 
 
@@ -58,6 +53,8 @@ def Dirs(dir):
 
 
 
+
+#os.path.basename(path)
 
 
 
