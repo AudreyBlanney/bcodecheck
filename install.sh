@@ -94,6 +94,7 @@ pip install Django
 pip install hjson
 pip install gevent
 pip install gevent-websocket
+pip install pymysql
 curl -sL https://deb.nodesource.com/setup | sudo bash -
 apt-get install -y nodejs
 gem install brakeman
