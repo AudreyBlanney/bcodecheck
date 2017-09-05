@@ -1,8 +1,0 @@
-[{
-    "name": "onmessage=",
-    "source": "onmessage=$_any",
-    "testhit": "onmessage=bar",
-    "testmiss": "onmessage",
-    "desc": "检查以确保消息处理程序验证，以防止恶意跨域消息。",
-    "threat": "输入验证"
-}]
