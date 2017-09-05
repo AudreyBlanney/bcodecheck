@@ -1,0 +1,400 @@
+[{
+    "name": "eval",
+    "source": "eval()",
+    "testhit": "eval('jsCode'+usercontrolledVal )",
+    "testmiss": "eval",
+    "desc": "对eval(...)的第一个参数的控制会导致直接脚本的执行。",
+    "threat": "代码执行"
+}, {
+    "name": "global.eval",
+    "source": "$_any.eval()",
+    "testhit": "window.eval('jsCode'+usercontrolledVal )",
+    "testmiss": "eval",
+    "desc": "对eval(...)的第一个参数的控制会导致直接脚本的执行。",
+    "threat": "代码执行"
+}, {
+    "name": "new Function",
+    "source": "new Function()",
+    "testhit": "new Function('jsCode'+usercontrolledVal ) ;\n new Function('arg','arg2','jsCode'+usercontrolledVal )",
+    "testmiss": "Function",
+    "desc": "对Function(...)的第一个参数的控制会导致直接脚本的执行。",
+    "threat": "代码执行"
+}, {
+    "name": "call Function",
+    "source": "Function()",
+    "testhit": "Function('jsCode'+usercontrolledVal ) ;\n Function('arg','arg2','jsCode'+usercontrolledVal )",
+    "testmiss": "Function",
+    "desc": "对Function(...)的第一个参数的控制会导致直接脚本的执行。",
+    "threat": "代码执行"
+}, {
+    "name": "setTimeout",
+    "source": "setTimeout()",
+    "testhit": "setTimeout('jsCode'+usercontrolledVal ,timeMs)",
+    "testmiss": "setTimeout",
+    "desc": "用户的输入的第一个参数为字符串（或字符串连接）调用的setTimeout可能导致XSS。",
+    "threat": "XSS"
+}, {
+    "name": "global.setTimeout",
+    "source": "$_any.setTimeout()",
+    "testhit": "global.setTimeout('jsCode'+usercontrolledVal ,timeMs)",
+    "testmiss": "setTimeout",
+    "desc": "用户的输入的第一个参数为字符串（或字符串连接）调用的setTimeout可能导致XSS。",
+    "threat": "XSS"
+}, {
+    "name": "setInterval",
+    "source": "setInterval()",
+    "testhit": "setInterval('jsCode'+usercontrolledVal ,timMs)",
+    "testmiss": "setInterval",
+    "desc": "用户的输入的第一个参数为字符串（或字符串连接）调用的setInterval可能导致XSS。",
+    "threat": "XSS"
+}, {
+    "name": "global.setInterval",
+    "source": "$_any.setInterval()",
+    "testhit": "global.setInterval('jsCode'+usercontrolledVal ,timMs)",
+    "testmiss": "setInterval",
+    "desc": "用户的输入的第一个参数为字符串（或字符串连接）调用的setInterval可能导致XSS。",
+    "threat": "XSS"
+}, {
+    "name": "setImmediate",
+    "source": "setImmediate()",
+    "testhit": "setImmediate('jsCode'+usercontrolledVal )",
+    "testmiss": "setImmediate",
+    "desc": "用户的输入的第一个参数为字符串（或字符串连接）调用的setImmediate可能导致XSS。",
+    "threat": "XSS"
+}, {
+    "name": "global.setImmediate",
+    "source": "$_any.setImmediate()",
+    "testhit": "global.setImmediate('jsCode'+usercontrolledVal )",
+    "testmiss": "setImmediate",
+    "desc": "用户的输入的第一个参数为字符串（或字符串连接）调用的setImmediate可能导致XSS。",
+    "threat": "XSS"
+}, {
+    "name": "execScript",
+    "source": "execScript()",
+    "testhit": "execScript('jsCode'+usercontrolledVal ,'JScript')",
+    "testmiss": "execSript",
+    "desc": "用户输入使用EXEC脚本导致跨站脚本（仅适用于Internet Explorer）。",
+    "threat": "XSS"
+}, {
+    "name": "crypto.generateCRMFRequest",
+    "source": "crypto.generateCRMFRequest()",
+    "testhit": "crypto.generateCRMFRequest('CN=0',0,0,null,'jsCode'+usercontrolledVal,384,null,'rsa-dual-use')",
+    "testmiss": "crypto.generateCRMFRequest",
+    "desc": "由于Firefox的一个bug，这个功能可以用作模糊化的方式来调用字符串执行脚本（如EVAL）。这可能会导致跨站点脚本。",
+    "threat": "XSS"
+}, {
+    "name": "document.write ",
+    "source": "document.write()",
+    "testhit": "document.write('test')",
+    "testmiss": "document.write",
+    "desc": "编写用户指定的HTML的DOM可能导致跨站脚本。",
+    "threat": "XSS"
+}, {
+    "name": "document.writeln",
+    "source": "document.writeln()",
+    "testhit": "document.writeln('test')",
+    "testmiss": "document.writeln",
+    "desc": "编写用户指定的HTML的DOM可能导致跨站脚本。",
+    "threat": "XSS"
+}, {
+    "name": ".innerHTML ",
+    "source": "$_any.innerHTML=$_unsafe",
+    "testhit": "a.innerHTML=foo;a.innerHTML=foo+'bar'",
+    "testmiss": "a.innerHTML='foo';a.innerHTML='foo'+'bar'",
+    "desc": "编写用户指定的HTML的DOM可能导致跨站脚本。",
+    "threat": "XSS"
+}, {
+    "name": ".outerHTML ",
+    "source": "$_any.outerHTML=$_unsafe",
+    "testhit": "a.outerHTML=foo",
+    "testmiss": "outerHTML",
+    "desc": "编写用户指定的HTML的DOM可能导致跨站脚本。",
+    "threat": "XSS"
+}, {
+    "name": "insertAdjacentHTML()",
+    "source": "insertAdjacentHTML()",
+    "testhit": "insertAdjacentHTML(foo)",
+    "testmiss": "insertAdjacentHTML",
+    "desc": "编写用户指定的HTML的DOM可能导致跨站脚本。",
+    "threat": "XSS"
+}, {
+    "name": "$_any.createContextualFragment",
+    "source": "$_any.createContextualFragment",
+    "testhit": "foo.createContextualFragment",
+    "testmiss": "createContextualFragment",
+    "desc": "",
+    "threat": "XSS"
+}, {
+    "name": "$_any.location=",
+    "source": "$_any.location=$_unsafe",
+    "testhit": "foo.location=bar",
+    "testmiss": "foo.location==bar",
+    "desc": "该文件的位置可能导致重定向。此外，它可能导致跨站点脚本。",
+    "threat": "XSS"
+}, {
+    "name": "$_any.href=",
+    "source": "$_any.href=$_unsafe",
+    "testhit": "foo.href=bar",
+    "testmiss": "foo.href==bar",
+    "desc": "该文件的位置可能导致重定向。此外，它可能导致跨站点脚本。",
+    "threat": "文件重定向"
+}, {
+    "name": "$_any.pathname=",
+    "source": "$_any.pathname=$_unsafe",
+    "testhit": "foo.pathname=bar",
+    "testmiss": "foo.pathname==bar",
+    "desc": "该文件的位置可能导致重定向。",
+    "threat": "文件重定向"
+}, {
+    "name": "$_any.search=",
+    "source": "$_any.search=$_unsafe",
+    "testhit": "foo.search=bar",
+    "testmiss": "foo.search==bar",
+    "desc": "该文件的位置可能导致重定向。",
+    "threat": "文件重定向"
+}, {
+    "name": "$_any.protocol=",
+    "source": "$_any.protocol=$_unsafe",
+    "testhit": "foo.protocol=bar",
+    "testmiss": "foo.protocol==bar",
+    "desc": "该文件的位置可能导致重定向。",
+    "threat": "文件重定向"
+}, {
+    "name": "$_any.hostname=",
+    "source": "$_any.hostname=$_unsafe",
+    "testhit": "foo.hostname=bar",
+    "testmiss": "foo.hostname==bar",
+    "desc": "该文件的位置可能导致重定向。.",
+    "threat": "文件重定向"
+}, {
+    "name": "$_any.src=",
+    "source": "$_any.src=$_unsafe",
+    "testhit": "bar.src=foo",
+    "testmiss": "src.bar",
+    "desc": "该文档的位置可能会导致重定向。它也可能导致脚本执行，这取决于受影响的HTML代码（即，对象）",
+    "threat": "文件重定向"
+}, {
+    "name": "addEventListener()",
+    "source": "$_any.addEventListener()",
+    "testhit": "foo.addEventListener(bar+'bar')",
+    "testmiss": "addEventListener",
+    "desc": "有些事件（如消息）可能会导致不信任的第三方数据",
+    "threat": "信息泄露"
+}, {
+    "name": "message handler",
+    "source": "$_any.addEventListener('message')",
+    "testhit": "window.addEventListener('message', receiveMessage, false); ",
+    "testmiss": "window.addEventListener('notmessage', receiveMessage, false); ",
+    "desc": "检查以确保消息处理程序验证，以防止恶意跨域消息。",
+    "threat": "输入验证"
+}, {
+    "name": "onmessage=",
+    "source": "onmessage=$_any",
+    "testhit": "onmessage=bar",
+    "testmiss": "onmessage",
+    "desc": "检查以确保消息处理程序验证，以防止恶意跨域消息。",
+    "threat": "输入验证"
+}, {
+    "name": "Indexeddb",
+    "source": "indexedDB",
+    "testhit": "indexedDB.open('MyTestDatabase');",
+    "testmiss": " 'indexeddb'",
+    "desc": "存储在客户端上的键值对。确保你不要存储任何敏感数据，如凭据或长期的OAuth令牌等。",
+    "threat": "信息泄露"
+}, {
+    "name": "localStorage",
+    "source": "localStorage",
+    "testhit": "localStorage.setItem('name', 'user1'); ",
+    "testmiss": " 'localStorage'",
+    "desc": "存储在客户端上的键值对。确保你不要存储任何敏感数据，如凭据或长期的OAuth令牌等。",
+    "threat": "信息泄露"
+}, {
+    "name": "sessionStorage",
+    "source": "sessionStorage",
+    "testhit": "sessionStorage.setItem('name', 'user1'); ",
+    "testmiss": " 'sessionStorage'",
+    "desc": "客户端数据存储",
+    "threat": "信息泄露"
+}, {
+    "name": "Indexeddb",
+    "source": "$_any.indexedDB",
+    "testhit": "window.indexedDB.open('MyTestDatabase');",
+    "testmiss": " 'indexeddb'",
+    "desc": "客户端数据存储",
+    "threat": "信息泄露"
+}, {
+    "name": "localStorage",
+    "source": "$_any.localStorage",
+    "testhit": "window.localStorage.setItem('name', 'user1'); ",
+    "testmiss": " 'localStorage'",
+    "desc": "客户端数据存储。",
+    "threat": "信息泄露"
+}, {
+    "name": "sessionStorage",
+    "source": "$_any.sessionStorage",
+    "testhit": "window.sessionStorage.setItem('name', 'user1'); ",
+    "testmiss": " 'sessionStorage'",
+    "desc": "客户端数据存储。",
+    "threat": "信息泄露"
+}, {
+    "name": "DomParser",
+    "source": "$_any.parseFromString()",
+    "testhit": "window.doc = parser.parseFromString(someVar, 'text/html'); ",
+    "testmiss": "parseFromString()",
+    "desc": "编写用户指定的HTML的DOM可能导致跨站脚本。",
+    "threat": "XSS"
+}, {
+    "name": "assignment typo",
+    "source": "if($_contains('AssignmentExpression'));",
+    "testhit": "if(x=y){};",
+    "testmiss": "if(x==y){x=0;}",
+    "desc": "在声明误用赋值表达式",
+    "threat": "代码漏洞"
+}, {
+    "name": "nodejs_child_process",
+    "source": "require('child_process')",
+    "testhit": "require('child_process')",
+    "testmiss": "",
+    "desc": "如果与不受信任的数据使用该API可能会导致远程命令执行的问题。",
+    "threat": "命令执行"
+}, {
+    "name": "nodejs exec",
+    "source": "$_any.exec()",
+    "testhit": "$_any.exec('jsCode'+usercontrolledVal )",
+    "testmiss": "exec",
+    "desc": "如果与不受信任的数据使用该API可能会导致远程命令执行的问题。",
+    "threat": "命令执行",
+    "condition": "nodejs_child_process"
+}, {
+    "name": "nodejs execSync",
+    "source": "$_any.execSync()",
+    "testhit": "$_any.execSync()",
+    "testmiss": "execSync()",
+    "desc": "如果与不受信任的数据使用该API可能会导致远程命令执行的问题。",
+    "threat": "命令执行",
+    "condition": "nodejs_child_process"
+}, {
+    "name": "nodejs execFile",
+    "source": "$_any.execFile()",
+    "testhit": "$_any.execFile()",
+    "testmiss": "execFile()",
+    "desc": "如果与不受信任的数据使用该API可能会导致远程命令执行的问题。",
+    "threat": "命令执行",
+    "condition": "nodejs_child_process"
+}, {
+    "name": "nodejs execFileSync",
+    "source": "$_any.execFileSync()",
+    "testhit": "$_any.execFileSync()",
+    "testmiss": "execFileSync()",
+    "desc": "如果与不受信任的数据使用该API可能会导致远程命令执行的问题。",
+    "threat": "命令执行",
+    "condition": "nodejs_child_process"
+}, {
+    "name": "nodejs spawn",
+    "source": "$_any.spawn()",
+    "testhit": "$_any.spawn()",
+    "testmiss": "spawn()",
+    "desc": "如果与不受信任的数据使用该API可能会导致远程命令执行的问题。",
+    "threat": "命令执行",
+    "condition": "nodejs_child_process"
+}, {
+    "name": "nodejs spawnSync",
+    "source": "$_any.spawnSync()",
+    "testhit": "$_any.spawnSync()",
+    "testmiss": "spawnSync()",
+    "desc": "如果与不受信任的数据使用该API可能会导致远程命令执行的问题。",
+    "threat": "命令执行",
+    "condition": "nodejs_child_process"
+}, {
+    "name": "nodejs fork",
+    "source": "$_any.fork()",
+    "testhit": "$_any.fork()",
+    "testmiss": "execFile()",
+    "desc": "如果与不受信任的数据使用该API可能会导致远程命令执行的问题。",
+    "threat": "命令执行",
+    "condition": "nodejs_child_process"
+}, {
+    "name": "nodejs_filesystem",
+    "source": "require('fs')",
+    "testhit": "require('fs')",
+    "testmiss": "chmod()",
+    "desc": "如果与不受信任的数据使用该API可能会导致远程命令执行的问题。",
+    "threat": "命令执行"
+}, {
+    "name": "nodejs chmod",
+    "source": "$_any.chmod()",
+    "testhit": "$_any.chmod()",
+    "testmiss": "chmod()",
+    "desc": "该API可能会导致不安全的文件权限的特权升级问题的设置。",
+    "threat": "权限漏洞",
+    "condition": "nodejs_filesystem"
+}, {
+    "name": "nodejs chmod",
+    "source": "$_any.chmod(ignored, 777, ignored)",
+    "testhit": "$_any.chmod(/path/,777,callback);",
+    "testmiss": "chmod()",
+    "desc": "给每位用户读，写和执行权限可能是危险的。",
+    "threat": "权限漏洞",
+    "condition": "nodejs_filesystem"
+}, {
+    "name": "nodejs chmod",
+    "source": "$_any.chmod(ignored, 0777, ignored)",
+    "testhit": "$_any.chmod(/path/,0777,callback);",
+    "testmiss": "chmod()",
+    "desc": "给每位用户读，写和执行权限可能是危险的。",
+    "threat": "权限漏洞",
+    "condition": "nodejs_filesystem"
+}, {
+    "name": "nodejs chmodSync",
+    "source": "$_any.chmodSync(ignored, 777)",
+    "testhit": "$_any.chmodSync(/path/,777);",
+    "testmiss": "chmodSync()",
+    "desc": "给每位用户读，写和执行权限可能是危险的。",
+    "threat": "权限漏洞",
+    "condition": "nodejs_filesystem"
+}, {
+    "name": "nodejs chownSync",
+    "source": "$_any.chmodSync(ignored, 0777)",
+    "testhit": "$_any.chmodSync(/path/,0777);",
+    "testmiss": "chmodSync()",
+    "desc": "给每位用户读，写和执行权限可能是危险的。",
+    "threat": "权限漏洞",
+    "condition": "nodejs_filesystem"
+}, {
+    "name": "nodejs_fs_createReadStream",
+    "source": "$_any.createReadStream()",
+    "testhit": "$_any.createReadStream()",
+    "testmiss": "createReadStream",
+    "desc": "给每位用户读，写和执行权限可能是危险的。",
+    "threat": "权限漏洞",
+    "condition": "nodejs_filesystem"
+}, {
+    "name": "nodejs_fs_pipe",
+    "source": "$_any.pipe()",
+    "testhit": "$_any.pipe()",
+    "testmiss": "pipe",
+    "desc": "给每位用户读，写和执行权限可能是危险的。",
+    "threat": "权限漏洞",
+    "condition": "nodejs_fs_createReadStream"
+}, {
+    "name": "respose_write_xss",
+    "source": "$_any.write()",
+    "testhit": "$_any.write('string'+usercontrolledVal )",
+    "testmiss": "write",
+    "desc": "用户传递contolled的值到使用write方法的HTTP响应可能会导致反射式跨站点脚本和其他类似的注入攻击。确保你把它发送到客户端之前正确过滤用户控制数据。",
+    "threat": "XSS"
+}, {
+    "name": "HTML5 PostMessage",
+    "source": "$_any.postMessage(ignored, '*')",
+    "testhit": "parent.postMessage(site, '*');",
+    "testmiss": "parent.postMessage(site, 'event.origin')",
+    "desc": "如果你期望从其他站点接收邮件时，始终使用来源和可能的源属性验证发件人的身份。任何窗口（包括，例如，http://evil.example.com）可以发送消息给其他任何窗口，你有没有保证一个未知发件人将不会发送恶意邮件。经核实身份，但是，你还是应该始终验证收到的消息的语法。否则，在该网站一个安全漏洞，你值得信赖的只发送可信的讯息，然后可以在你的网站打开一个跨站点脚本漏洞。务必指定一个确切的目标原点，而不是*，当您使用的postMessage将数据发送到其他窗口。恶意站点可以改变窗口的位置。因此，它可以拦截使用的postMessage发送的数据。",
+    "threat": "XSS (HTML5 PostMessage)"
+}, {
+    "name": "jQuery.html ",
+    "source": "$_any.html()",
+    "testhit": "foo.html(bar)",
+    "testmiss": "fod.html('bar')",
+    "desc": "编写用户指定的HTML的DOM可能导致跨站脚本。",
+    "threat": "XSS"
+}]

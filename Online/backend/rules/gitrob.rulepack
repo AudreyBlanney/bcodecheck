@@ -1,0 +1,394 @@
+[
+  {
+    "part": "filename",
+    "type": "regex",
+    "pattern": "LipfcnNh",
+    "caption": "SSH私钥。",
+    "description": null
+  },
+  {
+    "part": "filename",
+    "type": "regex",
+    "pattern": "LipfZHNh",
+    "caption": "SSH私钥。",
+    "description": null
+  },
+  {
+    "part": "filename",
+    "type": "regex",
+    "pattern": "LipfZWQyNTUxOQ==",
+    "caption": "SSH私钥。",
+    "description": null
+  },
+  {
+    "part": "filename",
+    "type": "regex",
+    "pattern": "LipfZWNkc2E=",
+    "caption": "SSH私钥。",
+    "description": null
+  },
+  {
+    "part": "extension",
+    "type": "match",
+    "pattern": "cGVt",
+    "caption": "潜在的密钥加密私钥。",
+    "description": null
+  },
+  {
+    "part": "extension",
+    "type": "regex",
+    "pattern": "a2V5KHBhaXIpPw==",
+    "caption": "潜在的密钥加密私钥。",
+    "description": null
+  },
+  {
+    "part": "extension",
+    "type": "match",
+    "pattern": "cGtjczEy",
+    "caption": "潜在密钥包。",
+    "description": null
+  },
+  {
+    "part": "extension",
+    "type": "match",
+    "pattern": "cGZ4",
+    "caption": "潜在密钥包。",
+    "description": null
+  },
+  {
+    "part": "extension",
+    "type": "match",
+    "pattern": "cDEy",
+    "caption": "潜在密钥包。",
+    "description": null
+  },
+  {
+    "part": "extension",
+    "type": "match",
+    "pattern": "YXNj",
+    "caption": "潜在密钥包。",
+    "description": null
+  },
+  {
+    "part": "filename",
+    "type": "match",
+    "pattern": "b3RyLnByaXZhdGVfa2V5",
+    "caption": "Pidgin OTR私钥。",
+    "description": null
+  },
+  {
+    "part": "filename",
+    "type": "regex",
+    "pattern": "Lj8oYmFzaF98enNoX3x6KT9oaXN0b3J5",
+    "caption": "Shell命令历史记录文件。",
+    "description": null
+  },
+  {
+    "part": "filename",
+    "type": "regex",
+    "pattern": "Lj9teXNxbF9oaXN0b3J5",
+    "caption": "MySQL客户端历史记录文件。",
+    "description": null
+  },
+  {
+    "part": "filename",
+    "type": "regex",
+    "pattern": "Lj9wc3FsX2hpc3Rvcnk=",
+    "caption": "PostgreSQL客户端历史记录文件。",
+    "description": null
+  },
+  {
+    "part": "filename",
+    "type": "regex",
+    "pattern": "Lj9pcmJfaGlzdG9yeQ==",
+    "caption": "Ruby IRB控制台历史记录文件。",
+    "description": null
+  },
+  {
+    "part": "path",
+    "type": "regex",
+    "pattern": "Lj9wdXJwbGVcL2FjY291bnRzLnhtbA==",
+    "caption": "Pidgin聊天客户帐户配置文件。",
+    "description": null
+  },
+  {
+    "part": "path",
+    "type": "regex",
+    "pattern": "Lj94Y2hhdDI/XC9zZXJ2bGlzdF8/LmNvbmY=",
+    "caption": "Hexchat/XChat IRC客户端服务器列表配置文件。",
+    "description": null
+  },
+  {
+    "part": "path",
+    "type": "regex",
+    "pattern": "Lj9pcnNzaVwvY29uZmln",
+    "caption": "Irssi IRC 客户端配置文件。",
+    "description": null
+  },
+  {
+    "part": "path",
+    "type": "regex",
+    "pattern": "Lj9yZWNvbi1uZ1wva2V5cy5kYg==",
+    "caption": "Recon-ng络侦察框架API密钥数据库。",
+    "description": null
+  },
+  {
+    "part": "filename",
+    "type": "regex",
+    "pattern": "Lj9kYmVhdmVyLWRhdGEtc291cmNlcy54bWw=",
+    "caption": "DBeaver SQL数据库管理器配置文件。",
+    "description": null
+  },
+  {
+    "part": "filename",
+    "type": "regex",
+    "pattern": "Lj9tdXR0cmM=",
+    "caption": "Mutt e-mail客户端配置文件。",
+    "description": null
+  },
+  {
+    "part": "filename",
+    "type": "regex",
+    "pattern": "Lj9zM2NmZw==",
+    "caption": "S3cmd配置文件。",
+    "description": null
+  },
+  {
+    "part": "filename",
+    "type": "regex",
+    "pattern": "Lj90cmM=",
+    "caption": "命令行的Twitter客户端配置文件。",
+    "description": null
+  },
+  {
+    "part": "extension",
+    "type": "match",
+    "pattern": "b3Zwbg==",
+    "caption": "OpenVPN客户端配置文件。",
+    "description": null
+  },
+  {
+    "part": "filename",
+    "type": "regex",
+    "pattern": "Lj9naXRyb2JyYw==",
+    "caption": "Gitrob配置文件",
+    "description": null
+  },
+  {
+    "part": "filename",
+    "type": "regex",
+    "pattern": "Lj8oYmFzaHx6c2gpcmM=",
+    "caption": "Shell配置文件。",
+    "description": "Shell configuration files might contain information such as server hostnames, passwords and API keys."
+  },
+  {
+    "part": "filename",
+    "type": "regex",
+    "pattern": "Lj8oYmFzaF98enNoXyk/cHJvZmlsZQ==",
+    "caption": "Shell文件配置文件。",
+    "description": "Shell configuration files might contain information such as server hostnames, passwords and API keys."
+  },
+  {
+    "part": "filename",
+    "type": "regex",
+    "pattern": "Lj8oYmFzaF98enNoXyk/YWxpYXNlcw==",
+    "caption": "Shell命令别名配置文件。",
+    "description": "Shell configuration files might contain information such as server hostnames, passwords and API keys."
+  },
+  {
+    "part": "filename",
+    "type": "match",
+    "pattern": "c2VjcmV0X3Rva2VuLnJi",
+    "caption": "Ruby On Rails令牌配置文件。",
+    "description": "If the Rails secret token is known, it can allow for remote code execution. (http://www.exploit-db.com/exploits/27527/)"
+  },
+  {
+    "part": "filename",
+    "type": "match",
+    "pattern": "b21uaWF1dGgucmI=",
+    "caption": "OmniAuth配置文件。",
+    "description": "The OmniAuth configuration file might contain client application secrets."
+  },
+  {
+    "part": "filename",
+    "type": "match",
+    "pattern": "Y2FycmllcndhdmUucmI=",
+    "caption": "Carrierwave配置文件。",
+    "description": "Can contain credentials for online storage systems such as Amazon S3 and Google Storage."
+  },
+  {
+    "part": "filename",
+    "type": "match",
+    "pattern": "c2NoZW1hLnJi",
+    "caption": "Ruby On Rails数据库文件。",
+    "description": "Contains information on the database schema of a Ruby On Rails application."
+  },
+  {
+    "part": "filename",
+    "type": "match",
+    "pattern": "ZGF0YWJhc2UueW1s",
+    "caption": "潜在的Ruby on Rails的数据库配置文件。",
+    "description": "Might contain database credentials."
+  },
+  {
+    "part": "filename",
+    "type": "match",
+    "pattern": "c2V0dGluZ3MucHk=",
+    "caption": "Django配置文件。",
+    "description": "Might contain database credentials, online storage system credentials, secret keys, etc."
+  },
+  {
+    "part": "filename",
+    "type": "regex",
+    "pattern": "KC4qKT9jb25maWcoLmluYyk/LnBocA==",
+    "caption": "PHP配置文件。",
+    "description": "Might contain credentials and keys."
+  },
+  {
+    "part": "extension",
+    "type": "match",
+    "pattern": "a2Ri",
+    "caption": "KeePass的密码管理器数据库文件。",
+    "description": null
+  },
+  {
+    "part": "extension",
+    "type": "match",
+    "pattern": "YWdpbGVrZXljaGFpbg==",
+    "caption": "密码管理器数据库文件。",
+    "description": null
+  },
+  {
+    "part": "extension",
+    "type": "match",
+    "pattern": "a2V5Y2hhaW4=",
+    "caption": "Apple Keychain数据库文件。",
+    "description": null
+  },
+  {
+    "part": "extension",
+    "type": "regex",
+    "pattern": "a2V5KHN0b3JlfHJpbmcp",
+    "caption": "GNOME Keyring数据库文件。",
+    "description": null
+  },
+  {
+    "part": "extension",
+    "type": "match",
+    "pattern": "bG9n",
+    "caption": "日志文件。",
+    "description": "Log files might contain information such as references to secret HTTP endpoints, session IDs, user information, passwords and API keys."
+  },
+  {
+    "part": "extension",
+    "type": "match",
+    "pattern": "cGNhcA==",
+    "caption": "网络流量捕获文件。",
+    "description": null
+  },
+  {
+    "part": "extension",
+    "type": "regex",
+    "pattern": "c3FsKGR1bXApPw==",
+    "caption": "SQL转储文件。",
+    "description": null
+  },
+  {
+    "part": "extension",
+    "type": "match",
+    "pattern": "Z251Y2FzaA==",
+    "caption": "GnuCash数据库文件。",
+    "description": null
+  },
+  {
+    "part": "filename",
+    "type": "regex",
+    "pattern": "YmFja3Vw",
+    "caption": "包含文字:备份。",
+    "description": null
+  },
+  {
+    "part": "filename",
+    "type": "regex",
+    "pattern": "ZHVtcA==",
+    "caption": "包含文字：下载。",
+    "description": null
+  },
+  {
+    "part": "filename",
+    "type": "regex",
+    "pattern": "cGFzc3dvcmQ=",
+    "caption": "包含文字：密码。",
+    "description": null
+  },
+  {
+    "part": "filename",
+    "type": "regex",
+    "pattern": "cHJpdmF0ZS4qa2V5",
+    "caption": "包含文字：私有，密钥。",
+    "description": null
+  },
+  {
+    "part": "filename",
+    "type": "match",
+    "pattern": "amVua2lucy5wbHVnaW5zLnB1Ymxpc2hfb3Zlcl9zc2guQmFwU3NoUHVibGlzaGVyUGx1Z2luLnhtbA==",
+    "caption": "公开的Jenkins软件会覆盖SSH文件。",
+    "description": null
+  },
+  {
+    "part": "filename",
+    "type": "match",
+    "pattern": "Y3JlZGVudGlhbHMueG1s",
+    "caption": "潜在的Jenkins凭证文件。",
+    "description": null
+  },
+  {
+    "part": "filename",
+    "type": "regex",
+    "pattern": "Lj9odHBhc3N3ZA==",
+    "caption": "Apache的htpasswd文件。",
+    "description": null
+  },
+  {
+    "part": "filename",
+    "type": "regex",
+    "pattern": "Lj9uZXRyYw==",
+    "caption": "自动登录过程中的配置文件。",
+    "description": "Might contain username and password."
+  },
+  {
+    "part": "extension",
+    "type": "match",
+    "pattern": "a3dhbGxldA==",
+    "caption": "KDE Wallet管理器数据库文件。",
+    "description": null
+  },
+  {
+    "part": "filename",
+    "type": "match",
+    "pattern": "TG9jYWxTZXR0aW5ncy5waHA=",
+    "caption": "潜在的ediaWiki 配置文件。",
+    "description": null
+  },
+  {
+    "part": "extension",
+    "type": "match",
+    "pattern": "dGJsaw==",
+    "caption": "Tunnelblick VPN配置文件。",
+    "description": null
+  },
+  {
+    "part": "path",
+    "type": "regex",
+    "pattern": "Lj9nZW0vY3JlZGVudGlhbHM=",
+    "caption": "Rubygems证书文件。",
+    "description": "Might contain API key for a rubygems.org account."
+  },
+  {
+    "part": "filename",
+    "type": "regex",
+    "pattern": "LnB1YnhtbCgudXNlcik/",
+    "caption": "潜在MSBuild发布简介。",
+    "description": null
+  }
+]
