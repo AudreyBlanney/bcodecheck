@@ -13,11 +13,13 @@ def remove_file(_, path):
         return
 
 def Dirs(dir):
+    # 切换到目的目录
     try:
         os.chdir(os.path.abspath(dir))
     except Exception as e:
         return
 
+    # 遍历目录
     for _ in os.listdir(dir):
         # 如果是目录，获取绝对路径，重新调用dirs函数
         if os.path.isdir(_):
@@ -34,3 +36,18 @@ def Dirs(dir):
 
 # if __name__ == '__main__':
 #     Dirs('/tmp')
+
+
+'''
+主要的函数，就两个
+
+dirs是获取所有的文件，把绝对路径存入到paths列表里
+
+zip_file函数是把所有的文件打包，压缩
+
+要改的是，加一个函数，功能是解压文件，然后把解压后的目录路径传给dirs函数，走之前的流程
+
+
+https://pymotw.com/3/zipfile/
+
+'''
