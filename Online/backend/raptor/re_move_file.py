@@ -13,13 +13,11 @@ def remove_file(_, path):
         return
 
 def Dirs(dir):
-    # 切换到目的目录
     try:
         os.chdir(os.path.abspath(dir))
     except Exception as e:
         return
 
-    # 遍历目录
     for _ in os.listdir(dir):
         # 如果是目录，获取绝对路径，重新调用dirs函数
         if os.path.isdir(_):
