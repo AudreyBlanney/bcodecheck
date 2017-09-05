@@ -8,7 +8,6 @@ def remove_file(_, path):
     file_types = ['.java','.aspx','.asp','.c','.h','.cpp','.php','.py','.rb','.pl','.xml','.jsp']
     types = os.path.splitext(_)[1]
     if types not in file_types:
-#        print "删除了文件：%s\n' % path"
         os.remove(path)
     else:
         return
