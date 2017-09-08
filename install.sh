@@ -133,13 +133,15 @@ case $version in
 L | l )
 echo '### Local version ### chosed ~ Waiting for copying files !'
 cd $raptor_path
-cp -r Local/frontend/* /var/www/html/raptor
+cp -r Local/frontend/* /var/www/html/raptor      #带*表示只复制frontend文件夹下的文件 不带*表示连带目录一起复制
+cp -r Local/backend/ $raptor_path
 echo 'Cpoy Files Successed !!!'
 ;;
 O | o )
 echo '### Online version ### chosed ~ Waiting for copying files !'
 cd $raptor_path
 cp -r Online/frontend/* /var/www/html/raptor
+cp -r Online/backend/ $raptor_path
 echo 'Cpoy Files Successed !!!'
 ;;
 * )
