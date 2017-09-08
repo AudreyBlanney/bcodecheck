@@ -1,0 +1,59 @@
+/*弹窗样式单位px*/
+.btn{
+    padding: 0 0;
+    font-size: 12px;
+}
+.btn:hover{
+    color: #00a0e0;
+}
+
+.modal-content{
+    background-color: rgba(31,39,38,.4);
+    color: #ffffff;
+}
+.modal-header{
+    border-bottom: 1px solid #00a0e0;
+    font-size: 14px;
+}
+.modal-body{
+    font-size: 12px;
+}
+.modal-footer{
+    border-top: none;
+}
+
+
+.btn-default{
+    padding: 6px 12px;
+    color:#ffffff ;
+    background-color: #00a0e0;
+    border-color: #00a0e0;
+}
+.btn-default:active{
+    color: #ffffff;
+    background-color: #00a0e0;
+    border-color: #00a0e0;
+}
+.btn-default:active:hover{
+    color: #ffffff;
+    background-color: #00a0e0;
+    border-color: #00a0e0;
+}
+.btn-default:focus{
+    color: #ffffff;
+    background-color: #00a0e0;
+    border-color: #00a0e0;
+}
+.btn-default:hover{
+    color: #ffffff;
+    background-color: #00a0e0;
+    border-color: #00a0e0;
+}
+.btn-default:active:focus{
+    color: #ffffff;
+    background-color: #00a0e0;
+    border-color: #00a0e0;
+}
+
+
+

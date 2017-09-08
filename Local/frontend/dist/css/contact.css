@@ -1,0 +1,114 @@
+.addtitle{
+    height: 32px;
+    border-bottom:1px solid #262d37;
+}
+.addtitle a{
+	display:inline-block;
+	float:left;
+	padding:0.2rem 0.6rem;
+	font-size:16px;
+	text-align:center;
+	color:#ffffff;
+	border-radius:2px;
+}
+.addtitle a:hover{
+    color:#fff;
+}
+.addtitle span{
+    display: inline-block;
+    float:left;
+    width:30px;
+    height: 30px;
+    overflow: hidden;
+    margin-left:2px;
+}
+.secondT{
+	margin-left:10px;
+}
+.adduser{
+    display:inline-block;
+	float:left;
+	padding:0.2rem 0.6rem;
+	font-size:16px;
+	text-align:center;
+	color:#ffffff;
+	border-radius:2px;
+ }
+.btn:focus, .btn:active:focus{
+	outline:none;
+}
+.adduser:focus{
+    display:inline-block;
+	float:left;
+	padding:0.2rem 0.6rem;
+	font-size:16px;
+	text-align:center;
+	color:#ffffff;
+	border-radius:2px;
+	border:none;
+}
+
+ .operation{
+    color:#ffffff;
+}
+.edit:hover{
+    color:#83c2f8;
+}
+.del:hover{
+	color:#83c2f8;
+}
+.open:hover{
+	color:#83c2f8;
+}
+.clo:hover{
+	color:#83c2f8;
+}
+
+/*三级标题样式*/
+.thirdT{
+	margin-top: 2px;
+	height:32px;
+	border-bottom:1px solid #262d37;
+}
+.thirdT li{
+	float:left;
+	padding:4px 12px;
+	font-size:14px;
+	border-radius:2px;
+	cursor: pointer;
+}
+.message{
+	display:none;
+}
+
+/*导出日志样式*/
+.useMes{
+	position: relative;
+}
+.export-journal{
+	position: absolute;
+	top:10px;
+	left:15px;
+	width: 80px;
+	height:30px;
+	text-align: center;
+	line-height: 30px;
+	font-size: 16px;
+	background-color: #20262f;
+	border:1px solid #0978b7;
+	border-radius: 4px;
+}
+.pull-left{
+	margin-top:10px;
+}
+select{
+	outline: none;
+}
+/*弹框拖动定位*/
+.modal-dialog{
+	position:absolute;
+	left:50%;
+	top:30px;
+	margin:0;
+	margin-left: -300px;
+}

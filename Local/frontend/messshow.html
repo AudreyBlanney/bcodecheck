@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./dist/css/caf.css">
+    <link rel="stylesheet" href="./dist/css/table.css">
+    <link rel="stylesheet" href="./dist/css/messshow.css">
+
+</head>
+<body>
+
+
+<div  class="tab-content tab-content-top">
+    <div class="scroll-container">
+        <div class="scroll">
+
+            <div class="tab-pane fade in active changecode" id="tabmessage">
+                --------------推入代<br>码片段------------------<br>
+                --------------推入代<br>码片段------------------<br>
+                --------------推入代<br>码片段------------------<br>
+                --------------推入代<br>码片段------------------<br>
+                --------------推入代<br>码片段------------------<br>
+                --------------推入代<br>码片段------------------<br>
+                --------------推入代<br>码片段------------------<br>
+                --------------推入代<br>码片段------------------<br>
+                --------------推入代<br>码片段------------------<br>
+                --------------推入代<br>码片段------------------<br>
+                --------------推入代<br>码片段------------------<br>
+                --------------推入代<br>码片段------------------<br>
+                --------------推入代<br>码片段------------------<br>
+                --------------推入代<br>码片段------------------<br>
+                --------------推入代<br>码片段------------------<br>
+                --------------推入代<br>码片段------------------<br>
+            </div>
+        </div>
+    </div>
+</div>
+<!-------------------------下面结构------------------------->
+<ul class="nav nav-tabs tabsT" style="border:1px solid #0978b7">
+
+
+    <li class="active "><a href="#tab1" data-toggle="tab" class="tab-titles">跟踪路径</a></li>
+    <li><a href="#tab2" data-toggle="tab" class="tab-titles">缺陷描述</a></li>
+    <li><a href="#tab3" data-toggle="tab" class="tab-titles">修改建议</a></li>
+    <li><a href="#tab4" data-toggle="tab" class="tab-titles">缺陷审计</a></li>
+
+
+</ul>
+<div  class="tab-content tab-content-bottom ">
+
+
+
+        <div class="tab-pane fade in active changepath  scroll-right" id="tab1">
+
+
+                    <!----------------推入跟踪路径   表格-------------------->
+                    <table id = "tableBottom" class="table table-bordered" style="margin-top: 0">
+                        <!--表格-->
+                    </table>
+
+        </div>
+        <div class="tab-pane fade changedescribe scroll-right" id="tab2">
+            <p class="part4-text">
+                数据批量获取：<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;可能会导致企业业务数据数据泄露在公网或在黑市上进行 买卖，造成影响用户工作生活、<br>给企业带来数据资
+                产损失和舆论压力，影响相关企业的信誉等一系列的严重后果。
+            </p>
+        </div>
+        <div class="tab-pane fade changesuggest  scroll-right" id="tab3">
+            <p class="part4-text">
+                加强人员安全培训，将相关批量获取行为进行线下核对，确定数量使用原因。
+            </p>
+        </div>
+        <div class="tab-pane fade changeaudit  scroll-right" id="tab4">
+
+            <form action="" class="audit-form">
+                <div class="audit-relative">
+                    <span class="audit-title">告警等级</span>
+                    <div class="level-posi">
+                        <input type="radio" name="grade" id="height">
+                        <label for="height"></label>
+                        <span class="grade-cla">高</span>
+
+                        <input type="radio" name="grade" id="middle">
+                        <label for="middle" style="left: 48px;"></label>
+                        <span class="grade-cla">中</span>
+
+                        <input type="radio" name="grade" id="low">
+                        <label for="low" style="left: 94px;"></label>
+                        <span class="grade-cla">低</span>
+
+                        <input type="radio" name="grade" id="ign">
+                        <label for="ign" style="left: 138px;"></label>
+                        <span class="grade-cla">忽略</span>
+                    </div>
+                </div>
+                <div class="audit-relative-bott">
+                    <span class="audit-title">备注</span>
+                    <textarea class="text-area"></textarea>
+                </div>
+                <button type="submit" class="sub">提交</button>
+            </form>
+        </div>
+
+
+
+</div>
+<script src = "./dist/js/jquery-3.1.1.min.js"></script>
+<script src = "./dist/js/bootstrap.min.js"></script>
+<script src="./dist/js/bootstrap-table.js"></script>
+<script>
+    $('#tableBottom').bootstrapTable({
+        url:'../data.json',
+        method:'post',
+        pagination:true,
+        sidePagination: "server",
+        singleSelect: false,
+
+        columns: [
+            {
+                field: 'name',
+                title: '文件名',
+                align:'center',
+                valign:'middle'
+
+            }, {
+                field: 'codemessage',
+                title: '行号',
+                align:'center',
+                valign:'middle'
+            },{
+                field: 'suggestmessage',
+                title: '代码段',
+                align:'center',
+                valign:'middle'
+            }],
+
+
+
+    });
+</script>
+</body>
+</html>

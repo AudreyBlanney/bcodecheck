@@ -1,0 +1,381 @@
+/*注册登录修改密码单位为px*/
+body{
+    width: 100%;
+    height: 100%;
+    background: url("../../images/nbg.png") no-repeat;
+    background-size: cover;
+    background-position: center top;
+    
+}
+.newnavbg{
+	background-color: #354d5e;
+	background: linear-gradient(right, #354d5e, #2a323d);
+    background: -moz-linear-gradient(right, #354d5e, #2a323d);
+    background: -o-linear-gradient(right, #354d5e, #2a323d);
+    background: -webkit-linear-gradient(right, #354d5e, #2a323d);
+}
+.main{
+	min-width:900px;
+    margin-top: 150px;
+}
+/*信息填写样式*/
+.form{
+	margin: 40px  auto;
+	max-width: 380px;
+	min-width: 380px;
+	padding: 20px 0;
+	background-color:rgba(38,62,87,.6);
+	box-shadow: 2px 2px 6px #232f3d;
+}
+
+.xddw{
+    width:100%;
+    height: 54px;
+    position: relative;
+    color: #ffffff;
+    font-size: 16px;
+}
+.zt{
+	font-size: 26px;
+	text-align: center;
+	line-height: 54px;
+}
+.xddw img{
+	position: absolute;
+	left: 17%;
+    top: 12px;
+    width: 22px;
+}
+.message-input{
+    position: absolute;
+    top:7px;
+    left: 15%;
+    width: 70%;
+    height: 36px;
+    border:none;
+    border-radius: 4px;
+    background:url(../../images/inputbg.png) no-repeat;
+    background-position:10% -3%;
+    background-size:110% 110%; 
+    text-indent: 3em;
+    font-size: 14px;
+}
+:-moz-placeholder { 
+    color: #dcdcdc;
+}
+
+::-moz-placeholder { 
+    color: #dcdcdc;
+}
+input:-ms-input-placeholder{
+    color: #dcdcdc;
+}
+input::-webkit-input-placeholder{
+    color: #dcdcdc;
+}
+.message-input:focus{
+	border:none;
+}
+.warning{
+    position: absolute;
+    top:44px;
+    left: 24%;
+    font-size: 12px;
+    color: red;
+    display: none;
+}
+.register{
+    position: absolute;
+    left: 15%;
+    bottom: 0;
+    width: 70%;
+    height: 36px;
+    color: #ffffff;
+    border:none;
+    font-weight: bold;
+    border-radius: 4px;
+    background:url(../../images/sigbg.png) no-repeat;
+    background-position:10% -3%;
+    background-size:110% 110%; 
+}
+/*验证码*/
+.code
+{
+	position:absolute;
+	top:7px;
+	left:55%;
+    font-family:Arial;
+    font-style:italic;
+    color:#3db7e7;
+    font-size: 20px;
+    border:0;
+    letter-spacing:3px;
+    font-weight:bolder;
+    cursor:pointer;
+    width: 30%;
+    height: 36px;
+    line-height: 36px;
+    text-align:center;
+}
+/*动画样式*/
+
+.animation-con{
+	margin: 0 auto;
+	position: relative;
+	width: 90%;
+	height:392px;
+	background:url(../../images/dz.png) no-repeat;
+	background-position:center bottom;
+	background-size:100%;
+}
+.sc{
+	position: absolute;
+	width: 62%;
+	top:50%;
+	left: 20%;
+}
+.animation-top{
+	position: relative;
+	width: 100%;
+	height:80%;
+	background:url(../../images/tx.png) no-repeat;
+	background-position:center -20%;
+	background-size:92%;
+	opacity: .5;
+	animation: txMove 3s linear infinite alternate;
+}
+
+@keyframes txMove {
+	0 {
+		opacity:.5;
+	}
+	50% {
+		opacity:.2;
+	}
+	100% {
+		opacity:.5;
+	}
+}
+
+.line{
+	position: absolute;
+	width: 5px;
+	background-color: #00a0e9;
+	background: linear-gradient(bottom, #283648, #00a0e9);
+    background: -moz-linear-gradient(bottom, #283648, #00a0e9);
+    background: -o-linear-gradient(bottom, #283648, #00a0e9);
+    background: -webkit-linear-gradient(bottom, #283648, #00a0e9); 
+}
+.line0{
+	bottom: 13%;
+    left: 4%;
+    height: 40px;
+	animation: lineMove 3s linear infinite alternate;
+}
+.line1{
+	bottom: 12%;
+    left: 86%;
+    height: 20px;
+	animation: lineMove 4s linear infinite alternate;
+}
+@keyframes lineMove {
+	0 {
+		height: 40px;
+	}
+	50% {
+		height: 90px;
+	}
+	100% {
+		height: 50px;
+	}
+}
+.sy{
+   position: absolute;
+   width: 2px;
+   height: 20px;
+   border:1px solid #009bec;
+
+}
+.sy img{
+	position: absolute;
+	top:-20px;
+	left: -10px;
+}
+.sy0{
+   bottom:18%;
+   left: 10%;
+   animation: syMove 3s linear 1s infinite alternate;
+}
+@keyframes syMove {
+	0 {
+		height: 20px;
+	}
+	50% {
+		height: 120px;
+	}
+	100% {
+		height: 30px;
+	}
+}
+.sy1{
+	bottom:21%;
+    left: 81%;
+    height: 40px;
+    animation: sysMove 4s linear infinite alternate;
+}
+@keyframes sysMove {
+	0 {
+		height: 60px;
+	}
+	50% {
+		height: 30px;
+	}
+	100% {
+		height: 70px;
+	}
+}
+.xy{
+	position: absolute;
+	width: 1px;
+	
+	border:1px dashed #009bec;
+}
+.xy img{
+	position: absolute;
+	top:-21px;
+	left: -10px;
+}
+.xy0{
+	bottom:22%;
+	left: 20%;
+	height: 100px;
+	animation: xyMove 3s linear 2s infinite;
+}
+.xy1{
+	bottom:10%;
+	left: 95%;
+	height: 90px;
+	animation: xyMove 3s linear infinite;
+}
+@keyframes xyMove {
+	0% {
+		height: 90px;
+	}
+	50% {
+		height: 40px;
+	}
+	100% {
+		height: 90px;
+	}
+}
+
+/*动态创建元素样式*/
+
+/*流星*/
+.lx{
+	position: absolute;
+	top:-20px;
+	width: 120px;
+	opacity:.8;
+	animation: lxMove 1s;
+}
+@keyframes lxMove {
+	0% {
+		opacity:.8;
+	}
+	100% {
+		opacity:0;
+	}
+}
+/*二进制数字*/
+.numT{
+	margin: 14px auto;
+	width: 58%;
+	height: 60%;
+	overflow: hidden;
+}
+.numT div{
+	float: left;
+	width: 20px;
+	height: 26px;
+	text-align: center;
+	line-height: 26px;
+	font-size: 22px;
+	opacity: .2;
+}
+.marginLeft0{
+	animation: marginLeftO 3s linear infinite;
+}
+@keyframes marginLeftO {
+	0% {
+		opacity:.2;
+		margin-left: 1px;
+	}
+	100% {
+		opacity:0;
+		margin-left: 0.5px;
+	}
+}
+.marginLeft1{
+	animation: marginLeftT 3s linear infinite;
+}
+@keyframes marginLeftT {
+	0% {
+
+		opacity:.2;
+		font-size: 20px;
+	}
+	100% {
+		opacity:0;
+		font-size: 22px;
+		
+	}
+}
+.marginLeft2{
+	animation: marginLeftTr 3s linear infinite;
+}
+@keyframes marginLeftTr {
+	0% {
+		opacity:.2;
+		font-size: 20px;
+		margin-right: 0.5px;
+	}
+	100% {
+		opacity:0;
+		font-size: 22px;
+		margin-right: 1px;
+		
+	}
+}
+
+
+
+
+
+
+
+
+
+/*5个球*/
+.creQiu{
+	position: absolute;
+	bottom: 0;
+}
+
+
+
+/* 注册 登录 修改密码页面的适配 */
+@media screen and (min-width:1500px){
+	.main{
+		margin-top:280px
+	}
+	.signinForm{
+	   margin:70px auto;
+    }
+}
+.lx0{
+	width:100px;
+	position:absolute;
+	top:-100px;
+}
+

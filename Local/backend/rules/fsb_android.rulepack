@@ -1,0 +1,155 @@
+{
+  "plugin_type": "fsb_android",
+  "file_types": [
+    ".java"
+  ],
+  "rules": [
+    {
+      "id": "FSB_ANDROID_GEOLOCATION",
+      "severity": "高",
+      "title": "地理位置API的使用",
+      "description": "与网页视图激活的地理位置泄漏",
+      "remediation": "Limit the sampling of geolocation and ask the user for confirmation.\n[CODE]\n\nwebView.setWebChromeClient(new WebChromeClient() {    @Override\n    public void onGeolocationPermissionsShowPrompt(String origin, GeolocationPermissions.Callback callback) {\n        callback.invoke(origin, true, false);\n\n        //Ask the user for confirmation\n    }\n});[/CODE]",
+      "signature": "b25HZW9sb2NhdGlvblBlcm1pc3Npb25zU2hvd1Byb21wdFwoW15cKV0qXCk=",
+      "condition": [
+        {
+          "signature": "aW1wb3J0XHNhbmRyb2lkXC53ZWJraXRcLldlYkNocm9tZUNsaWVudDs=",
+          "description": "check if it imports android.webkit.WebChromeClient"
+        }
+      ],
+      "link": "https://github.com/h3xstream/find-sec-bugs/blob/master/plugin/src/main/resources/metadata/messages.xml",
+      "platform_version": "all",
+      "enabled": "true"
+    },
+    {
+      "id": "FSB_ANDROID_BROADCAST",
+      "severity": "高",
+      "title": "广播发送",
+      "description": "广播意图可以通过相应权限的应用程序发送敏感信息。代码的风险：Intent i = new Intent();i.setAction('com.insecure.action.UserConnected');i.putExtra('username', user);i.putExtra('email', email);i.putExtra('session', newSessionId);this.sendBroadcast(v1)；",
+      "remediation": "<pre>\nIntent i = new Intent();\ni.setAction(\"com.secure.action.UserConnected\");\n\nsendBroadcast(v1);\n</pre>\n</p>\n<br/>\n<p>\n    <b>Configuration (receiver)<sup>[1] Source: StackOverflow</sup>:</b><br/>\n<pre>\n<manifest ...>\n\n    <!-- Permission declaration -->\n    <permission android:name=\"my.app.PERMISSION\" />\n\n    <receiver\n        android:name=\"my.app.BroadcastReceiver\"\n        android:permission=\"com.secure.PERMISSION\"> <!-- Permission enforcement -->\n        <intent-filter>\n            <action android:name=\"com.secure.action.UserConnected\" />\n        </intent-filter>\n    </receiver>\n\n    ...\n</manifest>\n</pre>\n</p>",
+      "signature": "c2VuZEJyb2FkY2FzdFwoW15cKV0qXCk7",
+      "condition": [
+        {
+          "signature": "bmV3XHNJbnRlbnRcKFteXCldKlwpOw==",
+          "description": "check if it creates a new intent with new Intent();"
+        },
+        {
+          "signature": "aW1wb3J0XHNhbmRyb2lkXC5jb250ZW50XC5JbnRlbnQ7",
+          "description": "check if it imports android.content.Intent"
+        }
+      ],
+      "link": "https://github.com/h3xstream/find-sec-bugs/blob/master/plugin/src/main/resources/metadata/messages.xml",
+      "platform_version": "all",
+      "enabled": "true"
+    },
+    {
+      "id": "FSB_ANDROID_RECEIVE",
+      "severity": "高",
+      "title": "广播接收",
+      "description": "接收广播",
+      "remediation": "Always perform contextual input validation on any incoming unstrusted broadcast content",
+      "signature": "b25SZWNlaXZlXChbXlwpXSpcKQ==",
+      "condition": [
+        {
+          "signature": "aW1wb3J0XHNhbmRyb2lkXC5jb250ZW50XC5Ccm9hZGNhc3RSZWNlaXZlcjs=",
+          "description": "check if it imports android.content.BroadcastReceiver;"
+        },
+        {
+          "signature": "aW1wb3J0XHNhbmRyb2lkXC5jb250ZW50XC5Db250ZXh0Ow==",
+          "description": "check if it imports android.content.Context"
+        }
+      ],
+      "link": "https://github.com/h3xstream/find-sec-bugs/blob/master/plugin/src/main/resources/metadata/messages.xml",
+      "platform_version": "all",
+      "enabled": "true"
+    },
+    {
+      "id": "FSB_ANDROID_EXTERNAL_FILE_ACCESS",
+      "severity": "高",
+      "title": "外部文件系统访问",
+      "description": "文件可以保存到外部存储。",
+      "remediation": "<p>\n    The application write data to external storage (potentially SD card). There are multiple security implication to this\n    action. First, file store on SD card will be accessible to the application having the\n    <a href=\"http://developer.android.com/reference/android/Manifest.permission.html#READ_EXTERNAL_STORAGE\"><code>READ_EXTERNAL_STORAGE</code></a> permission.\n    Also, if the data persisted contains confidential information about the user, encryption would be needed.\n</p>\n<p>\n    <b>Code at risk:</b><br/>\n<pre>\nfile file = new File(getExternalFilesDir(TARGET_TYPE), filename);\nfos = new FileOutputStream(file);\nfos.write(confidentialData.getBytes());\nfos.flush();\n</pre>\n</p>\n<p>\n    <b>Better alternative:</b><br/>\n<pre>\nfos = openFileOutput(filename, Context.MODE_PRIVATE);\nfos.write(string.getBytes());\n</pre>\n</p>",
+      "signature": "XC4oZ2V0RXh0ZXJuYWxDYWNoZURpcnxnZXRFeHRlcm5hbENhY2hlRGlyc3xnZXRFeHRlcm5hbEZpbGVzRGlyc3xnZXRFeHRlcm5hbEZpbGVzRGlyc3xnZXRFeHRlcm5hbE1lZGlhRGlycylcKFteXCldKlwp",
+      "condition": [
+        {
+          "signature": "aW1wb3J0XHNhbmRyb2lkXC5jb250ZW50XC5Db250ZXh0Ow==",
+          "description": "check if it imports android.content.Context;"
+        }
+      ],
+      "link": "https://github.com/h3xstream/find-sec-bugs/blob/master/plugin/src/main/resources/metadata/messages.xml",
+      "platform_version": "all",
+      "enabled": "true"
+    },
+    {
+      "id": "FSB_ANDROID_EXTERNAL_FILE_ACCESS",
+      "severity": "高",
+      "title": "外部文件系统访问",
+      "description": "该应用程序写入数据到外部存储，有多种安全寓意这个行动。首先，SD卡上的文件存储将是具有成READ_EXTERNAL_STORAGE许可应用程序进行访问。此外，如果数据持续包含有关用户的机密信息，将需要加密。代码风险：file file = new File(getExternalFilesDir(TARGET_TYPE), filename); fos = new FileOutputStream(file);fos.write(confidentialData.getBytes());fos.flush();",
+      "remediation": "<p>\n<b>Secure Alternative</b><br/>\n<pre>\nfos = openFileOutput(filename, Context.MODE_PRIVATE);\nfos.write(string.getBytes());\n</pre>\n</p>",
+      "signature": "XC4oZ2V0RXh0ZXJuYWxTdG9yYWdlRGlyZWN0b3J5fGdldEV4dGVybmFsU3RvcmFnZVB1YmxpY0RpcmVjdG9yeSlcKFteXCldKlwp",
+      "condition": [
+        {
+          "signature": "aW1wb3J0XHNhbmRyb2lkXC5vc1wuRW52aXJvbm1lbnQ7",
+          "description": "check if it imports android.os.Environment;"
+        }
+      ],
+      "link": "https://github.com/h3xstream/find-sec-bugs/blob/master/plugin/src/main/resources/metadata/messages.xml",
+      "platform_version": "all",
+      "enabled": "true"
+    },
+    {
+      "id": "FSB_ANDROID_WEB_VIEW_JAVASCRIPT",
+      "severity": "高",
+      "title": "Web视图中启用JavaScript",
+      "description": "web视图启用JavaScript易受XSS。页面渲染应检查作为潜在的反射型XSS，存储型XSS和DOM型XSS。风险代码：function updateDescription(newDescription) {$('#userDescription').html('+newDescription+');}",
+      "remediation": "",
+      "signature": "XC5zZXRKYXZhU2NyaXB0RW5hYmxlZFwodHJ1ZVwp",
+      "condition": [
+        {
+          "signature": "aW1wb3J0XHNhbmRyb2lkXC53ZWJraXRcLldlYlNldHRpbmdzOw==",
+          "description": "check if it imports android.webkit.WebSettings"
+        },
+        {
+          "signature": "aW1wb3J0XHNhbmRyb2lkXC53ZWJraXRcLldlYlZpZXc7",
+          "description": "check if it imports android.webkit.WebView;"
+        },
+        {
+          "signature": "aW1wb3J0XHNhbmRyb2lkXC53ZWJraXRcLldlYkNocm9tZUNsaWVudDs=",
+          "description": "check if it imports android.webkit.WebChromeClient;"
+        }
+      ],
+      "link": "https://github.com/h3xstream/find-sec-bugs/blob/master/plugin/src/main/resources/metadata/messages.xml",
+      "platform_version": "all",
+      "enabled": "true"
+    },
+    {
+      "id": "FSB_ANDROID_WEB_VIEW_JAVASCRIPT_INTERFACE",
+      "severity": "高",
+      "title": "Web视图的JavaScript接口",
+      "description": "使用JavaScript接口可能暴露的WebView到危险的API。如果一个XSS是触发器在Web视图中，类可能是由恶意的JavaScript代码调用。风险代码：WebView myWebView = (WebView) findViewById(R.id.webView);myWebView.addJavascriptInterface(new FileWriteUtil(this), 'fileWriteUtil');WebSettings webSettings = myWebView.getSettings();webSettings.setJavaScriptEnabled(true);[...]class FileWriteUtil {Context mContext; FileOpenUtil(Context c) {mContext = c;} public void writeToFile(String data, String filename, String tag) {[...]}}",
+      "remediation": "",
+      "signature": "XC5zZXRKYXZhU2NyaXB0RW5hYmxlZFwodHJ1ZVwp",
+      "condition": [
+        {
+          "signature": "aW1wb3J0XHNhbmRyb2lkXC53ZWJraXRcLldlYlZpZXc7",
+          "description": "check if it imports android.webkit.WebView;"
+        },
+        {
+          "signature": "aW1wb3J0XHNhbmRyb2lkXC52aWV3XC5WaWV3Ow==",
+          "description": "check if it imports android.view.View"
+        },
+        {
+          "signature": "aW1wb3J0XHNhbmRyb2lkXC52aWV3XC5WaWV3R3JvdXA7",
+          "description": "check if it imports android.view.ViewGroup;"
+        },
+        {
+          "signature": "aW1wb3J0XHNhbmRyb2lkXC53aWRnZXRcLkFic29sdXRlTGF5b3V0Ow==",
+          "description": "check if it imports android.widget.AbsoluteLayout;"
+        }
+      ],
+      "link": "https://github.com/h3xstream/find-sec-bugs/blob/master/plugin/src/main/resources/metadata/messages.xml",
+      "platform_version": "all",
+      "enabled": "true"
+    }
+  ]
+}

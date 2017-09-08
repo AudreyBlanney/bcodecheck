@@ -1,0 +1,345 @@
+
+.nav-pad {
+    margin: 0px 0px 0px 75px;
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1280px;
+    }
+}
+
+.comp-logo {
+    padding: 0 5px;
+}
+.navbar{
+    min-height: 80px;
+}
+
+.navbar-theme-blue {
+    background-color: #2f2f37;
+    border-color: #e7e7e7;
+}
+/*低分辨率-->菜单选项*/
+.navbar-theme-blue .navbar-toggle {
+    border-color: #0B76AC;
+}
+
+.navbar-theme-blue .navbar-toggle:hover,
+.navbar-theme-blue .navbar-toggle:active {
+    background-color: #50bcb6;
+}
+
+/*条线*/
+.navbar-theme-blue .navbar-toggle .icon-bar {
+    background-color: #FFF;
+}
+.navbar-theme-blue a {
+    color: #fff;
+}
+
+.nav>li>a:hover, .nav>li>a:focus {
+    text-decoration: none;
+    background-color: #50bcb6;
+    color:#082d42;
+}
+
+#tabs_title>li>a:hover, #tabs_title>li>a:focus {
+    text-decoration: none;
+    border: 1px solid #50bcb6;
+    background-color: #50bcb6;
+    color:#082d42;
+}
+
+/*正文背景*/
+.container{
+    padding-top:12px;
+}
+.container-fluid{
+    background-color: #4e4e58;
+}
+
+.tab-content>.tab-pane{
+    background-color: transparent;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.nav-pad>li>a:hover,.nav-pad>li.active,.nav-pad>li>a:focus {
+    text-decoration: none;
+    transition: 0.3s;
+    background: url('../img/btn_active.png') no-repeat;
+    background-position: -5px 0px;
+}
+
+.nav-tabs{
+    border-bottom: 1px solid #4f7377;
+}
+.nav-tabs>li>a {
+    color: #fff;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus{
+    background-color: #50bcb6;
+    border: solid 1px #50bcb6;
+    color:#082d42;
+}
+
+.page-header{color:#fff;
+    border-bottom: none;
+}
+#myTabContent{
+    width: 100%;
+}
+
+/*个人信息栏*/
+
+.navbar-nav>li>span.user-info-core {
+    display: block;
+    padding: 15px 15px;
+    line-height: 20px;
+    color: #fff;
+}
+
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+
+body {
+    background-color: #4e4e58;
+   font-family:"Microsoft YaHei",Arial,Helvetica,sans-serif,"宋体";
+}
+
+.form-control{
+    background-color: transparent;
+}
+
+.sub-header {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.navbar-fixed-top {
+    border: 0;
+}
+
+.sidebar {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .sidebar {
+        position: fixed;
+        top: 51px;
+        bottom: 0;
+        left: 0;
+        z-index: 1000;
+        display: block;
+        padding: 20px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        /* Scrollable contents if viewport is shorter than content. */
+        background-color: #f5f5f5;
+        border-right: 1px solid #eee;
+    }
+}
+
+
+/* Sidebar navigation */
+
+.nav-sidebar {
+    margin-right: -21px;
+    /* 20px padding + 1px border */
+    margin-bottom: 20px;
+    margin-left: -20px;
+}
+
+.nav-sidebar > li > a {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+    color: #fff;
+    background-color: #428bca;
+}
+
+
+
+/*
+ * Main content
+ */
+
+@media (min-width: 768px) {
+    .main {
+        padding-right: 40px;
+        padding-left: 40px;
+    }
+}
+
+.main .page-header {
+    margin-top: 0;
+}
+
+
+/*
+ * Placeholder dashboard ideas
+ */
+
+.placeholders {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.placeholders h4 {
+    margin-bottom: 0;
+}
+
+.placeholder {
+    margin-bottom: 20px;
+}
+
+.placeholder img {
+    display: inline-block;
+    border-radius: 50%;
+}
+
+.separator-line{
+    width: 100%;
+    height: 6px;
+    position: fixed;
+    z-index: 100;
+    background-color: #50bcb6;
+}
+ .table-dark{
+    background-color:#dbf7f5;
+} 
+/**btn样式**/
+.btn-gray{
+    color: #fff;
+    background-color: #4e4e58;
+}
+.btn-blue{
+    color: #082d42;
+    background-color: #50bcb6;
+}
+
+/*扫描页*/
+.zip-container .panel-heading{
+    background-color: #9cbfd3;
+}
+.zip-container .panel-body{
+    background-color: #dbf7f5;
+}
+
+
+/*代码分析*/
+#ownerview{
+    width:100%;
+}
+
+.echarts-view{
+    width:100%;
+    height: 350px;
+    color:#fff;
+    padding:25px 0 ; 
+    text-align: center;
+    border-bottom: 1px solid #4f7377;
+}
+.echarts-view-lg{
+    width:100%;
+    height: 450px;
+    color:#fff;
+    padding:25px 0 ; 
+    text-align: center;
+}   
+.owner-charts{
+    width:100%;
+    min-height: 400px;
+    color:#fff;
+    text-align: center;
+    border-bottom: 1px solid #4f7377;
+}
+
+.owner-table{
+    width: 100%;
+    min-height: 200px;
+    margin-top:30px;
+    background-color: #dbf7f5;
+    position: relative;
+}
+
+.type_language{
+    width: 100%;
+    height: 50px;
+    line-height:50px;
+    color:#eee;
+    border-bottom: 1px solid #4f7377;
+}
+.btn-codetype:{
+    margin-left: 10px;
+}
+.code-check:hover{
+    padding:0 .5rem;
+    background-color: #5dbcb6;
+    border-radius: 3px;
+}
+
+
+
+
+/*上传升级*/
+.file-select-upload{
+    width: 100%;
+    min-height: 50px;
+    line-height: 50px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #dbf7f5;
+}
+
+.table-upgradelist{
+    width: 100%;
+    min-height: 200px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #dbf7f5;
+}
+
+.up-success{
+    color:#a6e22e;
+}
+tbody>tr{
+    background-color: none;
+}
+a.control {
+    position: fixed;
+    top: 300px;
+    display: none;
+    padding: 50px 10px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+    background-color: rgba(0, 0, 0, .3);
+}
+.control.pre{
+    left:50px;
+}
+
+.control.next{
+    right:50px;
+}
+
+/*代码严重程度*/
+.code-level-h{
+    color:red;
+}
+.code-level-m{
+    color:#FFD700;
+}
+.code-level-l{
+    color:#93d665;
+}
+.code-level-green{
+    color:green;
+}

@@ -1,0 +1,31 @@
+/*header*/
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+    color: #ffffff;
+    background-color: #252c34;
+}
+.dropdown-menu {
+    border-radius: 0;
+    background-color: #252c34;
+    border: none!important;
+}
+.dropdown-menu > li > a {
+    color: #ffffff;
+}
+.dropdown-menu > li > .user_data:hover, .dropdown-menu > li > a:focus {
+    color: #ffffff;
+    background-color: #252c34;
+}
+.use{
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background: url("../../images/use.png") no-repeat;
+}
+.usepas{
+    background-position: -40px 0px;
+}
+
+/*.user_menu li:hover{
+    background-color: #97cee9;
+}*/
+

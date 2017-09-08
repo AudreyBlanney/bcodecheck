@@ -1,0 +1,117 @@
+*{margin: 0;  padding: 0;  }
+a{text-decoration: none;}
+
+a:hover{text-decoration: none!important;  }
+a:focus{text-decoration:none!important;  }
+img{ vertical-align:middle;}
+ol,ul,li{list-style: none;}
+html,body{
+    width: 100%;
+    height: 100%;
+    font-family:"Microsoft Yahei" ,Arial;
+    font-size:20px;
+    background-color: #2a323d;
+    overflow-x: hidden;
+    color: #ffffff;
+}
+
+/*导航样式覆盖,单位为px*/
+.navbar{
+    margin-bottom: 0;
+}
+.navbar-default {
+    background-color: rgba(34,41,48,.6);
+    border:none;
+}
+.navbar-nav > li > a {
+    padding: 24px 18px;
+    line-height: 24px;
+}
+.navbar-default .navbar-nav > li > a{
+    font-size: 18px;
+    color: #ffffff;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover{
+    color: #ffffff;
+    background-color: rgba(34,41,48,.6);
+}
+.navbar-toggle {
+    margin-top: 24px;
+    margin-bottom: 18px;
+}
+.navbar-default .navbar-toggle:hover {
+    background-color: #232931;
+}
+.navbar-default .navbar-toggle:focus {
+    background-color: #232931;
+}
+.navbar-default .navbar-nav > li > a:hover{
+    color: #ffffff;
+    background-color: inherit;
+}
+.navbar-default .navbar-nav > li > a:focus {
+    color: #ffffff;
+    background-color: inherit;
+}
+/*导航样式覆盖*/
+
+
+
+
+
+
+/*二级标题样式*/
+.rowpiece{
+    margin-top: 10px;
+    border-bottom: 1px solid #262d37;
+    /*#262d37*/
+    padding-right: 0;
+}
+.subhead{
+    text-align: center;
+    padding-right: 0;
+    padding-left: 0;
+    /*margin-top: .2rem;*/
+}
+.subhead a{
+	
+    padding: .2rem .6rem;
+    border-radius: 2px;
+    color: #ffffff;
+    font-size: 16px;
+
+}
+.subheadnext{
+    text-align: center;
+    padding-right: 0;
+}
+.subheadnext a{
+    padding: .1rem .6rem;
+    border-radius: 2px;
+    color: #ffffff;
+    font-size:16px;
+    border:1px solid #ffffff;
+}
+.click-bgc{
+    background-color:rgba(34,41,48,.6);
+}
+/*三级标题样式*/
+.mainmap{
+    min-height: 280px;
+    margin-top:.3rem ;
+   
+}
+/*********************ec图在tab-pane中加载**************/
+.tab-content > .tab-pane,
+.pill-content > .pill-pane {
+    display: block;
+    height: 0;
+    overflow-y: hidden;
+}
+.tab-content > .active,
+.pill-content > .active {
+    height: auto;
+}
+input:focus{
+    outline: none!important;
+}

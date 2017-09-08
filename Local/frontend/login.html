@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>匠迪云</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link rel="shortcut icon" href="./images/favicon.ico"/>
+
+    <link rel="stylesheet" href="./dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./dist/css/common.css">
+    <link rel="stylesheet" href="./dist/css/signin.css">
+
+</head>
+<body>
+
+<nav class="navbar navbar-default  navbar-fixed-top newnavbg">
+    <div class="container" style="height:76px">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html"><img src="./images/logo1.png" alt="" title="匠迪云安全"></a>
+        </div>
+    </div>
+</nav>
+
+
+
+
+
+
+
+<div class="container">
+    <div class="row main" >
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="animation-con">
+                <img src="images/sc.png" class="sc">
+                <div class="animation-top">
+                      <div class="numT">
+                          
+                      </div> 
+                </div>
+                <div class="line line0"></div>
+                <div class="line line1"></div>
+
+                <div class="sy sy0">
+                    <img src="images/sq.png">
+                </div>
+                <div class="sy sy1">
+                    <img src="images/sq.png">
+                </div>
+
+                <div class="xy xy0">
+                    <img src="images/xy.png">
+                </div>
+                <div class="xy xy1">
+                    <img src="images/xy.png">
+                </div>
+            </div>
+
+
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <form action= "" id="form" onsubmit="return false" class="form">
+                 <div class="xddw  zt">业务代码安全审查系统平台</div>
+                <div class="xddw ">
+                   
+                    <input type="text" name="user_name" placeholder="请输入用户名/手机号/邮箱" class="message-input">
+                     <img src="images/person.png">
+                    <p class="warning"></p>
+                </div>
+
+                <div class="xddw ">
+                    
+                    <input type="password" name="password" placeholder="请输入密码" class="message-input">
+                    <img src="images/suo.png">
+                    <p class="warning warning_err"></p>
+                </div>
+
+                <div class="xddw ">
+                    <input type="text" id="inputCode" placeholder="请输入验证码" class="message-input" style="width: 38%;text-indent: 2em">
+                    <div class="code" id="checkCode" onclick="createCode()" ></div>
+                    <p class="warning login_code"></p>
+                </div>
+
+                <div class="xddw">
+                    <button class="register" type="submit" type = "button">登&nbsp;&nbsp;陆</button>
+                    <!--<button type="reset" value="复位" style="display:none;"></button>-->
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="./dist/js/jquery-3.1.1.min.js"></script>
+<script src="./dist/js/bootstrap.min.js"></script>
+<script>
+    //判断是否为空
+    var  nullArr = ["用户名不能为空","密码不能为空"];
+    var reg_type = false;
+    $(".register").click(function(){
+        $(".message-input").each(function(i){
+            if($(this).val().trim() == ""){
+                $(".warning").eq(i).css("display","block");
+                $(".warning").eq(i).html(nullArr[i]);
+                reg_type = false;
+				createCode();
+            }else{
+                $(".warning").eq(i).css("display","none");
+                $(".warning").eq(i).html('');
+                reg_type = true;
+            }
+        })
+        //判断验证码
+        var inputCode=document.getElementById("inputCode").value;
+        if(inputCode.length <= 0) {
+            reg_type = false;
+            $('.login_code').css("display","block");
+            $('.login_code').html("请输入验证码");
+			createCode();
+        }
+        else if(inputCode.toUpperCase() != code.toUpperCase()) {
+            reg_type = false;
+            $('.login_code').css("display","block");
+            $('.login_code').html("验证码输入有误");
+            createCode();
+        }
+        else {
+            reg_type = true;
+        }
+        if(reg_type == true){
+            $.ajax({
+                url: 'login.php',
+                type: "post",
+                dataType:'json',
+                data: $("#form").serialize(),
+                success: function (data) {
+                    if(data.success){
+                        location.href = "scan.php";
+                    }else{
+                        $(".warning_err").css("display","block");
+                        $('.warning_err').html(data.res);
+						createCode();
+                    }
+                },
+                error: function (err) {
+                     alert('登录失败，请重新登录');
+                     location.href = "login.html";
+                 }
+            });
+        }
+    })
+    $(function(){
+        createCode();
+    });
+    //验证码
+    var code;
+    function createCode() {
+        code = "";
+        var codeLength = 6; //验证码的长度
+        var checkCode = document.getElementById("checkCode");
+        var codeChars = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
+                'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'); //所有候选组成验证码的字符，当然也可以用中文的
+        for(var i = 0; i < codeLength; i++) {
+            var charNum = Math.floor(Math.random() * 26);
+            code += codeChars[charNum];
+        }
+        if(checkCode) {
+            checkCode.className = "code";
+            checkCode.innerHTML = code;
+        }
+    }
+
+    // 流星
+    function ran(min,max){
+        return Math.floor(Math.random()*(max-min) +min);
+    }
+    var windowHeight = $(window).height();
+    var windowWidth = $(window).width();
+    var stopTop = windowHeight - 200;
+
+    setInterval(function(){
+        var lxNum = ran(0,2);
+        if(lxNum){
+             createLX();
+         }else{
+            console.log("0");
+         }
+    },2000)
+   
+    function createLX(){
+        var creLX = $("<img src='images/lx.png' class='lx'>");
+        $("body").append(creLX);
+        var leftLX = ran(0,windowWidth);
+        var stopLeft = leftLX- 200;
+        $(".lx").css("left",leftLX).animate({
+            left:stopLeft,
+            top:stopTop
+        },1000,function(){
+            $(this).remove();
+        });
+    }
+    
+   
+    // 0与1
+    var numArr = []; 
+    creNum()
+    function creNum(){
+        for(var i=0;i<160;i++){
+            var creEle = ran(0,2);
+            var creDivs = $("<div class='creDiv'></div>")
+            creDivs.html(creEle);
+            $(".numT").append(creDivs);
+        }
+
+        setInterval(function(){
+            var animaRan = ran(0,3);
+            if(animaRan == 0){
+                $("div.numT :nth-child(3n+1)").addClass("marginLeft0");
+            }else if(animaRan == 1){
+                $("div.numT :nth-child(even)").addClass("marginLeft1");
+            }else{
+                $("div.numT :nth-child(3n)").addClass("marginLeft2");
+            }
+        },2000)
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   // 五个图片
+    var imgSrc = ["images/qiu0.png","images/qiu1.png","images/qiu2.png","images/qiu3.png","images/qiu4.png"]
+    var creatQius = setInterval(function(){
+        var creQiu = $("<img class='creQiu'>");
+        $(".animation-top").append(creQiu)
+        var creQiuLeft = ran(30,70);
+        var creQiuBottom = 0
+        var creQiuSpeel = ran(1,3);
+        creQiu.attr("src",imgSrc[ran(0,5)])
+            .css({
+                "left":creQiuLeft+"%",
+                "width":ran(40,60)+"px",
+                "bottom":creQiuBottom
+            })
+            .animate({
+                opacity:0
+            },5000)
+        creQiu.move = setInterval(function(){
+            creQiuBottom+=creQiuSpeel;
+            if(creQiuBottom>102){
+                clearInterval(creQiu.move);
+                creQiu.remove();
+            }
+            creQiu.css({
+                "bottom":creQiuBottom+"%"
+            })
+          },60)
+       },1500)
+       
+
+</script>
+</body>
+</html>

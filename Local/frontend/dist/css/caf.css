@@ -1,0 +1,176 @@
+/*左右结构样式*/
+hr {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border: 0;
+    border-top: 1px solid #262d37;
+}
+.rl{
+    padding-left: 7px;
+    padding-right: 7px;
+}
+.message-left{
+    width: 100%;
+    /*border:1px solid #0978b7;*/
+    /*border-bottom: none;*/
+}
+.message-right{
+    width: 100%;
+    border:1px solid #0978b7;
+}
+
+/*高中低所有样式*/
+.level-con{
+    width: 100%;
+    border:1px solid #0978b7;
+    overflow: hidden;
+}
+.part4{
+    float: left;
+    width: 20%;
+    text-align: center;
+}
+.part4 p{
+    height: 1.5rem;
+    line-height: 1.5rem;
+}
+.part4:hover{
+    background-color: #1f2938;
+}
+/*树形结构样式*/
+.tree-con{
+    width: 100%;
+    border:1px solid #0978b7;
+    border-top:none;
+    min-height:400px ;
+
+}
+
+/*右侧标题样式*/
+a{
+    color: #ffffff;
+}
+a:hover{
+    color: #ffffff;
+}
+a:focus{
+    outline: none;
+}
+.nav-tabs{
+    border-bottom: 1px solid #1d7fb5;
+}
+.nav-tabs > li.active > a,  .nav-tabs > li.active > a:focus{
+    color: #ffffff;
+    cursor: pointer;
+    background-color: #1f2938;
+    border:none;
+    /*border-bottom-color: transparent;*/
+}
+.nav-tabs > li{
+    margin-left: 10px;
+    font-size: .8rem;
+}
+
+.nav-tabs > li > a{
+    padding: 2px 8px;
+    border-radius: 0;
+    margin-bottom:1px;
+}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover{
+    color: #ffffff;
+    cursor: pointer;
+    border: none;
+    background-color: #20262f;
+    box-shadow:1px 1px 2px #000;
+
+    /*border-bottom: 1px solid #1d7fb5;*/
+    /*border-bottom-color: transparent;*/
+}
+.nav > li > a:hover{
+    background-color: #1f2938;
+}
+.nav > li > a:focus {
+    background-color: #2a323d;
+}
+.nav-tabs > li > a{
+    border:none;
+}
+a:focus{
+    color: #ffffff;
+}
+.nav-tabs > li > a:hover{
+    border:none;
+}
+
+
+
+.iframe-con{
+    min-height: 456px;
+}
+/*iframe样式*/
+.iframe{
+    width: 100%;
+    height: 100%;
+}
+.cre-li{
+   padding: 0 14px 0 4px;
+
+}
+.cre-close{
+    position: absolute;
+    top:4px;
+    right: 0;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: url("../../images/del.png") no-repeat;
+    background-position: 0 0;
+    cursor: pointer;
+}
+.cre-title{
+    width: 60px;
+    border:1px solid pink;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+
+
+/******************滚动条样式*****************/
+.scroll-container{
+    width: 100%;
+    border-top:none;
+    height:100%;
+    position: relative;
+}
+.scroll{
+    width:100%;
+    height:100%;
+    position: absolute;
+    left: 0;
+    top:0;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+.scroll::-webkit-scrollbar{
+    background-color: #3a80a7;
+    width: 10px;
+    height:10px ;
+}
+.scroll::-webkit-scrollbar-thumb{
+    background-color: #114867;
+    border-radius: 6px;
+}
+.scroll::-webkit-scrollbar-corner{
+    background-color: #3a80a7;
+}
+/******************滚动条样式*****************/
+
+
+.pull-left{
+    margin-top: 10px;
+}
+.table > tbody > tr > td{
+    vertical-align: middle;
+}

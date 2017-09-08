@@ -1,0 +1,103 @@
+.download{
+    display: inline-block;
+    /*float: left;*/
+    width: 1.6rem;
+    height: inherit;
+   /* background:url(../../images/download.png)  no-repeat;
+    background-position:5px 2px;*/
+   
+    color: #ffffff;
+
+
+}
+.download:hover{
+    color:#83c2f8;
+}
+.look{
+	/*float: left;*/
+	display: inline-block;
+    width: 1.6rem;
+    height:inherit;
+    color: #ffffff;
+  
+}
+.look:hover{
+	color:#83c2f8;
+}
+.del{
+	display: inline-block;
+    width: 1.6rem;
+    height:inherit;
+    color: #ffffff;  
+}
+.del:hover{
+	color:#83c2f8;
+}
+
+
+/*进度条样式*/
+.bar-con{
+    position: relative;
+    padding-top: 1rem;
+    height: 60px;
+    border-bottom:1px solid #262d37;
+}
+.task_name{
+    position: absolute;
+    left: 0%;
+    top:50%;
+    margin-top: -15px;
+    display: inline-block;
+    width: 10%;
+    height: 30px;
+    font-size: 20px;
+    text-align: center;
+    line-height: 30px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.progress{
+    position: absolute;
+    left: 10%;
+    top:50%;
+    margin-top: -10px;
+    width: 80%;
+    border-radius: 10px;
+    background-color: #2a323d;
+    -moz-box-shadow:1px 1px 3px #0d0e11 inset;
+    -o-box-shadow:1px 1px 3px #0d0e11 inset; /* For Firefox3.6+ */
+    -webkit-box-shadow:1px 1px 3px #0d0e11 inset;            /* For Chrome5+, Safari5+ */
+    box-shadow:1px 1px 3px #0d0e11 inset;                    /* For Latest Opera */
+}
+.progress-bar{
+    border-radius: 10px;
+    background: linear-gradient(left, #1c3b60, #0ab9bf);
+    background: -moz-linear-gradient(left, #1c3b60, #0ab9bf);
+    background: -o-linear-gradient(left, #1c3b60, #0ab9bf);
+    background: -webkit-linear-gradient(left, #1c3b60, #0ab9bf);
+
+}
+.percent{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 10%;
+    text-align: center;
+    line-height: 30px;
+    margin-top: -15px;
+    height: 30px;
+    color: #cacaca;
+    font-size: 24px;
+}
+
+
+
+.notice{
+    margin-top: 40px;
+    text-align: center;
+    font-size: 30px;
+    color: #0ab9bf;
+}
+

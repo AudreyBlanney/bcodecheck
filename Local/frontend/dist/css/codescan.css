@@ -1,0 +1,311 @@
+/*图像样式*/
+.codemap{
+    /*border:1px solid #ffffff;*/
+    position: relative;
+    margin-top: 1rem ;
+    height: 16rem;
+}
+.codemap p{
+    position: absolute;
+    top:50%;
+    left: 25%;
+    width: 50%;
+    height: 1.8rem;
+    margin-top: -0.9rem;
+    border-radius: 1rem;
+}
+.right-bottom{
+    transform:rotate(45deg);
+    -ms-transform:rotate(45deg); /* Internet Explorer */
+    -moz-transform:rotate(45deg); /* Firefox */
+    -webkit-transform:rotate(45deg); /* Safari 和 Chrome */
+    -o-transform:rotate(45deg); /* Opera */
+    background-color:rgba(28,96,100,.6);
+}
+.left-bottom{
+    transform:rotate(-45deg);
+    -ms-transform:rotate(-45deg); /* Internet Explorer */
+    -moz-transform:rotate(-45deg); /* Firefox */
+    -webkit-transform:rotate(-45deg); /* Safari 和 Chrome */
+    -o-transform:rotate(-45deg); /* Opera */
+    background-color:rgba(0,159,236,.6);
+}
+.codemap p span{
+    position: absolute;
+    top:0;
+    left: 54.5%;
+    background-color: #2a323d;
+    width: 14px;
+    height: inherit;
+}
+.mt{
+    position: absolute;
+    left: 0;
+    top:0;
+    /*border:1px solid #ffffff;*/
+    width: 100%;
+    text-align: center;
+}
+.mt span{
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    background-color: #e4e2e2;
+    border-radius: 50%;
+}
+/*四个角*/
+.sxzy{
+    position: absolute;
+    min-width: 180px;
+    height: 30px;
+    /*width: 24%;*/
+    /*border:1px solid #ffffff;*/
+}
+.sxzy-text{
+    position: absolute;
+    top:0;
+    /*padding: 0 10px;*/
+    width: 200px;
+    height: 30px;
+    /*border:1px solid red;*/
+
+}
+.sxzy-text label{
+    position: absolute;
+    left: 2%;
+    display: inline-block;
+    text-align: center;
+    line-height: 28px;
+    width: 96%;
+    height: 28px;
+    font-size: 16px;
+    font-weight: 100;
+}
+.sxzy-text strong{
+    position: absolute;
+    left: 0%;
+    display: inline-block;
+    text-align: center;
+    line-height: 28px;
+    width: 100%;
+    height: 28px;
+}
+
+.sxzy span{
+    display: inline-block;
+    position: absolute;
+    top:0;
+    width: 30px;
+    height: 30px;
+    /*border:1px solid #ffffff;*/
+}
+.lt{
+    top:6%;
+    left: 8%;
+
+}
+.lt span{
+    right:0;
+    border-top:2px solid #1d4149;
+    border-left:2px solid #1d4149;
+}
+.rt{
+    top:6%;
+    right: 8%;
+}
+.rt span{
+    left: 0;
+    border-top:2px solid #156189;
+    border-right:2px solid #156189;
+}
+.lb{
+    left: 8%;
+    bottom: 6%;
+}
+.lb span{
+    right:0;
+    border-bottom:2px solid #156189;
+    border-left:2px solid #156189;
+}
+.rb{
+    right: 8%;
+    bottom: 6%;
+}
+.rb span{
+    left:0;
+    border-bottom:2px solid #1d4149;
+    border-right:2px solid #1d4149;
+}
+
+/*上传文件样式*/
+.file-container{
+    padding: .4rem 0;
+    font-size:.8rem;
+}
+.task-name{
+    margin-top: .2rem;
+    margin-right: 4px;
+    float: left;
+}
+.file-container input{
+    float: left;
+    background-color: #2a323d;
+    border:1px solid #2a323d;
+    padding: .2rem 0;
+    border-radius: 4px;
+    max-width: 100%;
+}
+
+/*.task-input{*/
+   /*margin-top: .15rem;*/
+/*}*/
+/*input[type="file"] {*/
+    /*!*visibility: hidden;*!*/
+
+    /*display: block;*/
+    /*margin: 0px 4px 4px 4px;*/
+    /*!*opacity: 0;*!*/
+    /*!*padding:.1rem 0 ;*!*/
+/*}*/
+.file-con{
+    float: left;
+    margin-left: .2rem;
+    width: 18rem;
+     background-color: #2a323d;
+    border:1px solid #2a323d;
+    height: 1.6rem;
+    border-radius: 4px;
+}
+.file {
+    position: relative;
+    display: inline-block;
+    background-color: #262c31;
+    border: 1px solid #2a323d;
+    box-shadow: -1px -1px 2px #000;
+    border-radius: 4px;
+    padding: .2rem .6rem;
+    overflow: hidden;
+    color: #ffffff;
+    text-decoration: none;
+    text-indent: 0;
+    line-height: 1rem;
+}
+
+.file input {
+    position: absolute;
+    right: 0;
+    top: 0;
+    opacity: 0;
+}
+.file-con p{
+    float: right;
+    width: 13rem;
+    height: 28px;
+    line-height: inherit;
+    margin-top: 1px;
+    border-radius: 4px;
+    overflow: hidden;
+    white-space: nowrap;
+    overflow: hidden;
+    background-color: #20262f;
+    text-overflow: ellipsis;
+}
+.file:hover {
+    background-color: #282f37;
+    border:1px solid #282f37;
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer!important;
+}
+.sub-button{
+    float: left;
+    margin-left: 6px;
+    background-color: #2a323d;
+    border:1px solid #2a323d;
+    box-shadow:-1px -1px 2px #2a323d;
+    border-radius: 4px;
+    padding: .2rem .4rem;
+    font-size: 16px;
+}
+.sub-button:hover{
+    background-color: #00a7f8;
+    border:1px solid #00a7f8;
+    box-shadow:-1px -1px 2px #00a7f8;
+}
+
+.uploading {
+    border-radius: 4px;
+    padding-bottom: .8rem;
+    padding-top: .4rem;
+    background-color:#20262f;
+}
+/*进度条样式*/
+.bar-con{
+
+    margin-top: 1rem;
+    position: relative;
+    height:30px;
+    display:none;
+
+}
+.scjd{
+    position: absolute;
+    left: 0%;
+    top:50%;
+    margin-top: -15px;
+    display: inline-block;
+    width: 10%;
+    height: 30px;
+    font-size: 20px;
+    text-align: center;
+    line-height: 30px;
+}
+.progress{
+    position: absolute;
+    left: 10%;
+    top:50%;
+    margin-top: -10px;
+    width: 80%;
+    border-radius: 10px;
+    background-color: #2a323d;
+    -moz-box-shadow:1px 1px 3px #0d0e11 inset;
+    -o-box-shadow:1px 1px 3px #0d0e11 inset; /* For Firefox3.6+ */
+    -webkit-box-shadow:1px 1px 3px #0d0e11 inset;            /* For Chrome5+, Safari5+ */
+    box-shadow:1px 1px 3px #0d0e11 inset;                       /* For Latest Opera */
+}
+.progress-bar{
+    border-radius: 10px;
+    background: linear-gradient(left, #1c3b60, #0ab9bf);
+    background: -moz-linear-gradient(left, #1c3b60, #0ab9bf);
+    background: -o-linear-gradient(left, #1c3b60, #0ab9bf);
+    background: -webkit-linear-gradient(left, #1c3b60, #0ab9bf);
+
+}
+.percent{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 10%;
+    text-align: center;
+    line-height: 30px;
+    margin-top: -15px;
+    height: 30px;
+    color: #cacaca;
+    font-size: 24px;
+}
+
+
+
+
+
+@media screen and (min-width:1500px){
+	.conMain{
+		padding-top:40px
+	}
+	.uploading{
+		margin:20px auto;
+	}
+	.progress {
+    margin-top: 2rem;
+	}
+}
