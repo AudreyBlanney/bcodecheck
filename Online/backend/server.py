@@ -58,13 +58,15 @@ def unzip_thread(fname, path='.'):
     def unzip(fname, path='.'):
         try:
             if zipfile.is_zipfile(fname):
-                z = os.popen('unzip %s -d %s' % (fname,path)).read()
+                z = os.system('unzip %s -d %s' % (fname,path))
+                if z == 0:
+                    re_move_file.Dirs(path)
+                    return True
                 # z = zipfile.ZipFile(fname, 'r')
                 # for file in z.namelist():
                 #     z.extract(file, path)
                 # # z.extractall(path)
                 # #re_move_file.Dirs(path)
-                return True
             else:
                 return False
         except Exception as e:

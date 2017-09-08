@@ -1,14 +1,21 @@
 #! coding=utf-8
 
 import os
+import re
 import sys
 import time
 
 def remove_file(_, path):
     file_types = ['.java','.aspx','.asp','.c','.h','.cpp','.php','.py','.rb','.pl','.xml','.jsp']
     types = os.path.splitext(_)[1]
+    filename = str(os.path.splitext(_)[0])
     if types not in file_types:
         os.remove(path)
+    elif types in file_types:
+        chinesefilename = re.search(r'[\x80-\xff]', filename, re.I)
+        if chinesefilename != None:
+            print chinesefilename
+            os.remove(path)
     else:
         return
 
