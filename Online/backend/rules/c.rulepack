@@ -1,0 +1,80 @@
+{
+  "plugin_type": "C",
+  "file_types": [
+    ".c",
+    ".h",
+    ".cpp"
+  ],
+  "rules": [
+    {
+      "id": "C",
+      "severity": "低",
+      "title": "文件操作",
+      "description": "文件操作。",
+      "remediation": " ",
+      "link": "https://www.securecoding.cert.org/confluence/pages/viewpage.action?pageId=2130132",
+      "example_insecure": " ",
+      "example_secure": " ",
+      "platform_version": "all",
+      "enabled": "true",
+      "logic": " ",
+      "signature": "cm1kaXJ8b3Blbnx1bmxpbmt8bWtkaXI="
+    },
+    {
+      "id": "C",
+      "severity": "高",
+      "title": "可能的命令注入",
+      "description": "命令注入是一种攻击，其中的目标是通过一个脆弱的应用程序的主机上的操作系统上执行任意命令。",
+      "remediation": " ",
+      "link": "https://www.securecoding.cert.org/confluence/pages/viewpage.action?pageId=2130132",
+      "example_insecure": " ",
+      "example_secure": " ",
+      "platform_version": "all",
+      "enabled": "true",
+      "logic": " ",
+      "signature": "cG9wZW58c3lzdGVtfGV4ZWNsfGV4ZWN2ZXxleGVjbGU="
+    },
+    {
+      "id": "C",
+      "severity": "高",
+      "title": "printf()功能可能失控的格式字符串",
+      "description": "当你使用printf()功能需要使用的格式字符串参数。",
+      "remediation": " ",
+      "link": "http://en.wikipedia.org/wiki/Uncontrolled_format_string",
+      "example_insecure": " ",
+      "example_secure": " ",
+      "platform_version": "all",
+      "enabled": "true",
+      "logic": " ",
+      "signature": "cHJpbnRmXChbYS16QS1aXS4q"
+    },
+    {
+      "id": "C",
+      "severity": "高",
+      "title": "fprintf()功能可能失控的格式字符串",
+      "description": "当你使用fprintf()功能需要使用的格式字符串参数。",
+      "remediation": " ",
+      "link": "http://en.wikipedia.org/wiki/Uncontrolled_format_string",
+      "example_insecure": " ",
+      "example_secure": " ",
+      "platform_version": "all",
+      "enabled": "true",
+      "logic": " ",
+      "signature": "ZnByaW50Zi4qKHN0ZG91dCxbYS16QS1aMC05XSokICk="
+    },
+    {
+      "id": "C",
+      "severity": "高",
+      "title": "可能strcpy()函数堆栈溢出",
+      "description": "当你使用strcpy()功能你需要注意。",
+      "remediation": " ",
+      "link": "https://www.owasp.org/index.php/Testing_for_Stack_Overflow",
+      "example_insecure": " ",
+      "example_secure": " ",
+      "platform_version": "all",
+      "enabled": "true",
+      "logic": " ",
+      "signature": "c3RyY3B5"
+    }
+  ]
+}
