@@ -1,0 +1,281 @@
+{
+  "plugin_type": "fsb_injection",
+  "file_types": [
+    ".java",
+    ".jsp"
+  ],
+  "rules": [
+    {
+      "id": "FSB_INJECTION_CODEEXEC",
+      "severity": "高",
+      "title": "潜在的命令注入",
+      "description": "突出显示的API是用于执行一个系统命令。如果未过滤的输入传递给这个API，它可以导致执行任意命令。",
+      "remediation": "Always try to avoid any user controlled data to reach APIs that do some kind on command execution. If it is really necessary make sure you have properly escape all harmful characters.",
+      "signature": "KChSdW50aW1lXC5nZXRSdW50aW1lXChcKSl8KFwuZXhlY1woLipcKSkpfChuZXdcc1Byb2Nlc3NCdWlsZGVyXChcKShcLmNvbW1hbmRcKC4qXCkoXC5zdGFydFwoXCkpPyk/KQ==",
+      "condition": [],
+      "link": "1.总是试图避免任何用户数据达到api控制,做一些命令执行. 2.确保你有正确转义所有有害的字符.  https://www.owasp.org/index.php/Command_Injection",
+      "platform_version": "all",
+      "enabled": "true"
+    },
+    {
+      "id": "FSB_INJECTION_CODEEXEC",
+      "severity": "高",
+      "title": "潜在的命令注入",
+      "description": "突出显示的API是用于执行一个系统命令。如果未过滤的输入传递给这个API，它可以导致执行任意命令。",
+      "remediation": "Always try to avoid any user controlled data to reach APIs that do some kind on command execution. If it is really necessary make sure you have properly escape all harmful characters.",
+      "signature": "XC5nZXRSdW50aW1lXChcKShcLmV4ZWNcKCk/fFwuZXhlY1wo",
+      "condition": [
+        {
+          "signature": "UnVudGltZVwuPw==",
+          "description": "check if the Runtime object has been instantiated."
+        }
+      ],
+      "link": "1.总是试图避免任何用户数据达到api控制,做一些命令执行. 2.确保你有正确转义所有有害的字符.  https://www.owasp.org/index.php/Command_Injection",
+      "platform_version": "all",
+      "enabled": "true"
+    },
+    {
+      "id": "FSB_INJECTION_SPRING_EXPRESSION",
+      "severity": "高",
+      "title": "潜在的XSS",
+      "description": "一个潜在的XSS被发现。它可以用来在客户端的浏览器执行不必要的JavaScript。",
+      "remediation": "The best defense against XSS is context sensitive output encoding like the example above. There are typically 4 contexts to consider: \nHTML, JavaScript, CSS (styles), and URLs. Please follow the XSS protection rules defined in the OWASP XSS Prevention Cheat Sheet,\nwhich explains these defenses in significant detail.",
+      "signature": "PHNwcmluZzpldmFsW1xzXHRdKmV4cHJlc3Npb249W1wnXCJdXCRce3BhcmFtXC4=",
+      "condition": [
+        {
+          "signature": "d3d3XC5zcHJpbmdmcmFtZXdvcmtcLm9yZw==",
+          "description": "check if the Spring Framework is being used"
+        }
+      ],
+      "link": "1.对XSS的最佳防御是上下文敏感的输出编码,通常有4个要考虑的上下文：HTML，JavaScript，CSS（样式）和URL. 2.遵守XSS保护规则,在OWASP XSS防范作弊表中定义. 3.检查是否正在使用Spring框架.  https://www.owasp.org/index.php/XSS_%28Cross_Site_Scripting%29_Prevention_Cheat_Sheet",
+      "platform_version": "all",
+      "enabled": "true"
+    },
+    {
+      "id": "FSB_INJECTION_LDAPJNDI",
+      "severity": "高",
+      "title": "潜在的LDAP注入",
+      "description": "查询可能会受到LDAP注入。就像SQL，传递到LDAP查询的所有输入需要安全地传递。不幸的是，LDAP不准备像SQL语句的接口。",
+      "remediation": "The primary defense against LDAP injection is strong input validation of any untrusted data before including it in an LDAP query.",
+      "signature": "XC5zZWFyY2hcKA==",
+      "condition": [
+        {
+          "signature": "aW1wb3J0XHNqYXZheFwubmFtaW5nXC5kaXJlY3RvcnlcLkluaXRpYWxEaXJDb250ZXh0Ow==",
+          "description": "check if it imports javax.naming.directory.InitialDirContext;"
+        },
+        {
+          "signature": "bmV3XHNTZWFyY2hDb250cm9sc1wo",
+          "description": "check if it initializes new SearchControls()"
+        },
+        {
+          "signature": "bmV3XHNJbml0aWFsRGlyQ29udGV4dFwo",
+          "description": "check if it initializes new InitialDirContext()"
+        }
+      ],
+      "link": "1.针对LDAP注入的主要防御措施是强大的输入验证.2.将任何不受信任的数据包含在LDAP查询中.3.检查它是否导入javax.naming.directory.InitialDirContext.4.检查它是否初始化新的SearchControls（）.5.检查它是否初始化新的InitialDirContext（）.  http://www.veracode.com/security/ldap-injection",
+      "platform_version": "all",
+      "enabled": "true"
+    },
+    {
+      "id": "FSB_INJECTION_LDAPJNDI",
+      "severity": "高",
+      "title": "潜在的LDAP注入",
+      "description": "查询可能会受到LDAP注入。就像SQL，传递到LDAP查询的所有输入需要安全地传递。",
+      "remediation": "The primary defense against LDAP injection is strong input validation of any untrusted data before including it in an LDAP query.",
+      "signature": "XC5zZWFyY2hcKA==",
+      "condition": [
+        {
+          "signature": "aW1wb3J0XHNjb21cLnVuYm91bmRpZFwubGRhcFwuc2RrXC4oTERBUENvbm5lY3Rpb24pPw==",
+          "description": "check if it imports com.unboundid.ldap.sdk.(LDAPConnection)?"
+        },
+        {
+          "signature": "bmV3XHNMREFQQ29ubmVjdGlvblwo",
+          "description": "check if it initializes new LDAPConnection()"
+        }
+      ],
+      "link": "1.针对LDAP注入的主要防御措施是强大的输入验证.2.将任何不受信任的数据包含在LDAP查询中.3.检查它是否导入javax.naming.directory.InitialDirContext.4.检查它是否初始化新的SearchControls（）.5.检查它是否初始化新的InitialDirContext（）.  http://www.veracode.com/security/ldap-injection",
+      "platform_version": "all",
+      "enabled": "true"
+    },
+    {
+      "id": "FSB_INJECTION_REDIRECT",
+      "severity": "高",
+      "title": "潜在的未经验证的重定向",
+      "description": "当一个应用程序重定向用户通过未验证的用户提供的参数指定了目标网址出现未经验证的重定向，这些漏洞可以被用于促进网络钓鱼攻击。",
+      "remediation": "Don't accept redirection destinations from users; Accept a destination key, and use it to look up the target (legal) destination; Accept only relative paths; White list URLs (if possible); Validate that the beginning of the URL is part of a white list",
+      "signature": "XC5hZGRIZWFkZXJcKFsiJ11Mb2NhdGlvblsiJ10sW1xzYS16QS1aMC05X1wuXCtcKFwpLF0qfFwuc2VuZFJlZGlyZWN0XChbXHNhLXpBLVowLTlfXC5cK1woXCksXSp8LnNldEhlYWRlclwoWyInXUxvY2F0aW9uWyInXSxbXHNhLXpBLVowLTlfXC5cK1woXCksXSo=",
+      "condition": [
+        {
+          "signature": "aW1wb3J0XHNqYXZheFwuc2VydmxldFwuaHR0cFwuSHR0cFNlcnZsZXQoUmVxdWVzdHxSZXNwb25zZSk/Ow==",
+          "description": "check if it imports javax.servlet.http.HttpServlet(Request|Response)?;"
+        },
+        {
+          "signature": "XC5zZXRTdGF0dXNcKEh0dHBTZXJ2bGV0UmVzcG9uc2VcLlNDX01PVkVEXw==",
+          "description": "check if it sets the HTTP redirection status code"
+        }
+      ],
+      "link": "1.不接受用户重定向目的地; 接受目的地密钥，并使用它来查找目标（合法）. 2.检查它是否导入javax.servlet.http.HttpServlet（Request | Response）. 3.检查它是否设置HTTP重定向状态代码.  https://www.owasp.org/index.php/Top_10_2013-A10-Unvalidated_Redirects_and_Forwards",
+      "platform_version": "all",
+      "enabled": "true"
+    },
+    {
+      "id": "FSB_INJECTION_SCRIPT_ENGINE",
+      "severity": "高",
+      "title": "使用脚本引擎时，潜在的代码注入",
+      "description": "动态代码正在评估此代码的评估可能会受到代码注入。执行恶意代码可能导致泄露的数据泄露或操作系统。",
+      "remediation": "A careful analysis of the code construction should be made. ",
+      "signature": "bmV3XHNTY3JpcHRFbmdpbmVNYW5hZ2VyXChcKXxcLmdldEVuZ2luZUJ5RXh0ZW5zaW9uXCh8XC5ldmFsXCg=",
+      "condition": [
+        {
+          "signature": "aW1wb3J0XHNqYXZheFwuc2NyaXB0XC5TY3JpcHRFbmdpbmUoTWFuYWdlcik/Ow==",
+          "description": "check if it imports javax.script.ScriptEngine(Manager)?;"
+        }
+      ],
+      "link": "1.对代码构建进行仔细分析. 2.检查它是否导入javax.script.ScriptEngine（Manager）.  http://codeutopia.net/blog/2009/01/02/sandboxing-rhino-in-java/",
+      "platform_version": "all",
+      "enabled": "true"
+    },
+    {
+      "id": "FSB_INJECTION_SPEL",
+      "severity": "高",
+      "title": "潜在的表达式语言注入",
+      "description": "Spring的表达是建立与动态值，这些的来源要进行验证，以避免未过滤的值落入这个危险的代码评估。",
+      "remediation": "A careful analysis of the code construction should be made. ",
+      "signature": "bmV3XHNTcGVsRXhwcmVzc2lvblBhcnNlclwofFwucGFyc2VFeHByZXNzaW9uXCg=",
+      "condition": [
+        {
+          "signature": "aW1wb3J0XHNvcmdcLnNwcmluZ2ZyYW1ld29ya1wuZXhwcmVzc2lvblwuKEV4cHJlc3Npb24oUGFyc2VyKT98Y29tbW9uXC5UZW1wbGF0ZUF3YXJlRXhwcmVzc2lvblBhcnNlcnxzcGVsXC5zdGFuZGFyZFwuU3BlbEV4cHJlc3Npb25QYXJzZXIpOw==",
+          "description": "check if it imports org.springframework.expression.(Expression|ExpressionParser|common.TemplateAwareExpressionParser|spel.standard.SpelExpressionParser);"
+        }
+      ],
+      "link": "1.对代码构建进行仔细分析. 2.检查它是否导入org.springframework.expression.  https://www.mindedsecurity.com/fileshare/ExpressionLanguageInjection.pdf",
+      "platform_version": "all",
+      "enabled": "true"
+    },
+    {
+      "id": "FSB_INJECTION_HIBERNATE_SQLI",
+      "severity": "高",
+      "title": "潜在的SQL/HQL注入",
+      "description": "查询是潜在的易受攻击SQL/HQL注入。包括在SQL查询的输入值需要在准备语句，安全的变量传递可以用来容易地减轻SQL注入的风险。",
+      "remediation": "Use parameterized queries/bind vraiables for protection against SQL injection.",
+      "signature": "XC5zcWxSZXN0cmljdGlvbnxjcmVhdGVRdWVyeXxjcmVhdGVTUUxRdWVyeVwo",
+      "condition": [
+        {
+          "signature": "aW1wb3J0XHNvcmdcLmhpYmVybmF0ZVwuKENyaXRlcmlhfGNyaXRlcmlvblwuUmVzdHJpY3Rpb25zfFNlc3Npb24oRmFjdG9yeSk/KTs=",
+          "description": "check if it imports org.hibernate.(Criteria|Session|SessionFactory|criterion.Restrictions);"
+        }
+      ],
+      "link": "1.使用参数化查询/指定变量来防止SQL注入. 2.检查它是否导入org.hibernate.  https://www.mindedsecurity.com/fileshare/ExpressionLanguageInjection.pdf",
+      "platform_version": "all",
+      "enabled": "true"
+    },
+    {
+      "id": "FSB_INJECTION_JDO_SQLI",
+      "severity": "高",
+      "title": "潜在的SQL/JDOQL注入（JDO）",
+      "description": "查询是潜在的易受攻击SQL/JDOQL注入。",
+      "remediation": "The input values included in SQL queries need to be passed in safely. Bind variables in prepared statements can be used to easily mitigate the risk of SQL injection.",
+      "signature": "XC4obmV3UXVlcnl8c2V0KEZpbHRlcnxHcm91cGluZykpW15cKF0qXCg=",
+      "condition": [
+        {
+          "signature": "aW1wb3J0XHNqYXZheFwuamRvXC4oUGVyc2lzdGVuY2VNYW5hZ2VyKEZhY3RvcnkpP3xRdWVyeSk7",
+          "description": "check if it imports javax.jdo.(PersistenceManager(Factory)?|Query);"
+        }
+      ],
+      "link": "1.SQL查询中包含的输入值需要安全传递,在查询语句中指定变量可以防止SQL注入的风险. 2.检查它是否导入javax.jdo.  https://www.owasp.org/index.php/Query_Parameterization_Cheat_Sheet",
+      "platform_version": "all",
+      "enabled": "true"
+    },
+    {
+      "id": "FSB_INJECTION_JPA_SQLI",
+      "severity": "高",
+      "title": "潜在的SQL/JPQL注入（JPA）",
+      "description": "查询是潜在的易受攻击SQL/JPQL注入",
+      "remediation": "The input values included in SQL queries need to be passed in safely. Bind variables in prepared statements can be used to easily mitigate the risk of SQL injection.",
+      "signature": "XC5jcmVhdGUoTmF0aXZlKT9RdWVyeVwo",
+      "condition": [
+        {
+          "signature": "aW1wb3J0XHNqYXZheFwucGVyc2lzdGVuY2VcLihFbnRpdHlNYW5hZ2VyfFR5cGVkUXVlcnkpOw==",
+          "description": "check if it imports javax.persistence.(EntityManager|TypedQuery);"
+        }
+      ],
+      "link": "1.SQL查询中包含的输入值需要安全传递.在查询语句中指定变量可以防止SQL注入的风险。 2.检查它是否导入javax.persistence.  https://www.owasp.org/index.php/Query_Parameterization_Cheat_Sheet",
+      "platform_version": "all",
+      "enabled": "true"
+    },
+    {
+      "id": "FSB_INJECTION_SERVLET_XSS",
+      "severity": "高",
+      "title": "潜在的XSS",
+      "description": "一个潜在的XSS被发现,它可以用来在客户端的浏览器执行不必要的JavaScript。",
+      "remediation": "The best defense against XSS is context sensitive output encoding like the example above. There are typically 4 contexts to consider: \nHTML, JavaScript, CSS (styles), and URLs. Please follow the XSS protection rules defined in the OWASP XSS Prevention Cheat Sheet,\nwhich explains these defenses in significant detail.",
+      "signature": "XC5nZXQoUGFyYW1ldGVyfEF0dHJpYnV0ZSlcKHxwcmludChsbnxmKT9cKHx3cml0ZVwo",
+      "condition": [
+        {
+          "signature": "aW1wb3J0XHMoamF2YXhcLnNlcnZsZXRcLihodHRwXC5IdHRwU2VydmxldFJlcXVlc3R8anNwXC5Kc3BXcml0ZXIpfGphdmFcLmlvXC5QcmludFdyaXRlcik7",
+          "description": "check if it imports (javax.servlet.(http.HttpServletRequest|jsp.JspWriter)|java.io.PrintWriter);"
+        }
+      ],
+      "link": "1.对XSS的最佳防御是上下文敏感的输出编码，通常有4个要考虑的上下文：HTML，JavaScript，CSS（样式）和URL. 2.遵守XSS保护规则,在OWASP XSS防范作弊表中定义. 3.检查是否正在使用Spring框架.  https://www.owasp.org/index.php/XSS_%28Cross_Site_Scripting%29_Prevention_Cheat_Sheet",
+      "platform_version": "all",
+      "enabled": "true"
+    },
+    {
+      "id": "FSB_INJECTION_XPATH",
+      "severity": "高",
+      "title": "潜在的XPath注入",
+      "description": "XPath注入风险是类似于SQL注入，如果XPath查询包含不可信的用户输入，完整的数据源可能会暴露。这可能允许攻击者访问未经授权的数据或恶意修改目标XML。",
+      "remediation": "Refer to the documentation link to learn more about preventing XPath Injections",
+      "signature": "XC5zZWxlY3QoKFNpbmdsZSk/Tm9kZShJdGVyYXRvcnxMaXN0KT8pXCg=",
+      "condition": [
+        {
+          "signature": "aW1wb3J0XHNvcmdcLmFwYWNoZVwueHBhdGhcLlhQYXRoKEFQSSk/Ow==",
+          "description": "check if it imports org.apache.xpath.XPath(API)?;"
+        }
+      ],
+      "link": "1.数据提交到服务器上端，在服务端正式处理这批数据之前，对提交数据的合法性进行验证。2.检查提交的数据是否包含特殊字符，对特殊字符进行编码转换或替换、删除敏感字符或字符串。3.对于系统出现的错误信息，以IE错误编码信息替换，屏蔽系统本身的出错信息。4.参数化XPath查询，将需要构建的XPath查询表达式，以变量的形式表示，变量不是可以执行的脚本。如下代码可以通过创建保存查询的外部文件使查询参数化：
+        declare variable $loginID as xs：string external；
+        declare variable $password as xs：string external；
+        //users/user[@loginID=$loginID and@password= $password] 5.通过MD5、SSL等加密算法，对于数据敏感信息和在数据传输过程中加密，即使某些非法用户通过非法手法获取数据包，看到的也是加密后的信息。6.检查它是否导入org.apache.xpath.XPath（API）.  https://www.securecoding.cert.org/confluence/pages/viewpage.action?pageId=61407250",
+      "platform_version": "all",
+      "enabled": "true"
+    },
+    {
+      "id": "FSB_INJECTION_XPATH",
+      "severity": "高",
+      "title": "潜在的XPath注入",
+      "description": "XPath注入风险是类似于SQL注入。如果XPath查询包含不可信的用户输入，完整的数据源可能会暴露。这可能允许攻击者访问未经授权的数据或恶意修改目标XML。",
+      "remediation": "Refer to the documentation link to learn more about preventing XPath Injections",
+      "signature": "XC4oY29tcGlsZXxldmFsdWF0ZSlcKA==",
+      "condition": [
+        {
+          "signature": "aW1wb3J0XHNqYXZheFwueG1sXC54cGF0aA==",
+          "description": "check if it imports javax.xml.xpath"
+        }
+      ],
+      "link": "1.数据提交到服务器上端，在服务端正式处理这批数据之前，对提交数据的合法性进行验证。2.检查提交的数据是否包含特殊字符，对特殊字符进行编码转换或替换、删除敏感字符或字符串。3.对于系统出现的错误信息，以IE错误编码信息替换，屏蔽系统本身的出错信息。4.参数化XPath查询，将需要构建的XPath查询表达式，以变量的形式表示，变量不是可以执行的脚本。如下代码可以通过创建保存查询的外部文件使查询参数化：
+        declare variable $loginID as xs：string external；
+        declare variable $password as xs：string external；
+        //users/user[@loginID=$loginID and@password= $password] 5.通过MD5、SSL等加密算法，对于数据敏感信息和在数据传输过程中加密，即使某些非法用户通过非法手法获取数据包，看到的也是加密后的信息。6.检查它是否导入org.apache.xpath.XPath（API）.  https://www.securecoding.cert.org/confluence/pages/viewpage.action?pageId=61407250",
+      "platform_version": "all",
+      "enabled": "true"
+    },
+    {
+      "id": "FSB_INJECTION_XXE",
+      "severity": "高",
+      "title": "XML解析易受XXE",
+      "description": "当从一个不可信源接收XML处理XML解析器支持XML实体可以发生XML外部实体（XXE）攻击，它是一个脆弱性因使用不安全SAXParser的或XMLReader或DocumentBuilder的XML。",
+      "remediation": "Refer to the documentation link to learn more about preventing XXE Injections",
+      "signature": "XC5wYXJzZVwo",
+      "condition": [
+        {
+          "signature": "aW1wb3J0XHMoamF2YXhcLnhtbFwucGFyc2Vyc1wuKFNBWFBhcnNlcihGYWN0b3J5KT98RG9jdW1lbnRCdWlsZGVyKEZhY3RvcnkpPyl8b3JnXC54bWxcLnNheFwuWE1MUmVhZGVyKEZhY3RvcnkpPyk7",
+          "description": "check if it imports org.xml.sax.XMLReader or javax.xml.parsers.DocumentBuilder or javax.xml.parsers.SAXParser"
+        }
+      ],
+      "link": "1.开发语言禁用外部实体.  2.过滤用户提交的XML数据. 3.检查它是否导入org.xml.sax.XMLReader或javax.xml.parsers.DocumentBuilder或javax.xml.parsers.SAXParser.  https://www.securecoding.cert.org/confluence/pages/viewpage.action?pageId=61702260",
+      "platform_version": "all",
+      "enabled": "true"
+    }
+  ]
+}
