@@ -106,7 +106,7 @@ title: 开发文档说明
 
 
 ### 'Local/backend/server.py'解读
-> 主要功能是调用flask框架,，加入了2个路modify由
+> 主要功能是调用flask框架,，加入了2个路由
 
 ### 1.'/raptor/upload'
     * 主要功能同上，去掉了上传的大小和次数，则每条状态信息存入日志表（数据库）；
