@@ -37,7 +37,18 @@ def help():
 def heartbeat():
     return '{"status":"true", "time":%s}' % (str(int(time.time())))
 
+UPLOAD_FOLDER = os.path.abspath(os.environ['zip_upload_dir'])
 ALLOWED_EXTENSIONS = set(['zip'])
+
+try:
+    os.makedirs(UPLOAD_FOLDER)
+except Exception as e:
+    if ' File exists: ' in str(e):
+        log.logger.debug("%s" % str(e))
+    else:
+        raise e
+
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -73,7 +84,7 @@ def unzip_thread(fname, path='.'):
 #删除zip文件
 def move_file(username,scan_name):
     try:
-        path = '/var/raptor/uploads/%s/%s/' % (username, scan_name)  # 文件存放路径（用户/任务名称）
+        path = os.path.abspath(os.path.join(app.config['UPLOAD_FOLDER'], username, scan_name))  # 文件存放路径（用户/任务名称）
         shutil.rmtree(path)
     except Exception as e:
         log.logger.error(e)
@@ -113,10 +124,10 @@ VALUES("%s","%s","%s","%s","1","%s");''' %(username, userdiction, be_record, be_
         if upld_file and allowed_file(upld_file.filename):
             try:
                 filename = secure_filename(upld_file.filename)
-                path = '/var/raptor/uploads/%s/%s/' % (username, scan_name)#文件存放路径（用户/任务名称）
-                if not os.path.exists(os.path.dirname(path)):
-                    os.makedirs(os.path.dirname(path), mode=0777)
-
+                path = os.path.abspath(os.path.join(app.config['UPLOAD_FOLDER'], username, scan_name))#文件存放路径（用户/任务名称）
+                if not os.path.exists(path):
+                    os.makedirs(path, mode=0777)
+                    
                 save_path = os.path.abspath(os.path.join(path, filename))#上传文件路径
                 upld_file.save(save_path)#保存文件
 
