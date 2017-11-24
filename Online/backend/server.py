@@ -83,6 +83,20 @@ def move_file(username,scan_name):
     except Exception as e:
         log.logger.error(e)
 
+# 修改扫描状态
+def update_scan(userid, scan_name):
+    select_sql = '''SELECT id FROM obsec_upload_info WHERE user_id=%s AND task_name ="%s";''' % (userid, scan_name)
+    upinfo = fetchall_db(select_sql)
+    if upinfo:
+        print upinfo
+        update_sql = '''UPDATE obsec_scan_summary SET scan_status=2 WHERE upinfo_id=%s;''' \
+                     % (upinfo[0])
+        execute_db(update_sql)
+        return True
+    else:
+        return False
+
+
 #上传文件接口
 @app.route("/raptor/upload", methods=['POST'])
 @allow_cross_domain
@@ -231,8 +245,7 @@ def zip_scan():
                         results['status'] = 1
                         return json.dumps(results)
                     else:
-                        sql = '''UPDATE obsec_scan_summary SET scan_status=2 WHERE user_id="%s" AND task_name="%s";''' \
-                              % (userid, scan_name)
+                        update_scan(userid, scan_name)
                         execute_db(sql)
                         results["status"] = 2  # 扫描失败
                         results["remark"] = "Update failure"  # 更新obsec_scan_data表失败
@@ -245,6 +258,7 @@ def zip_scan():
             results["status"] = 0#用户不存在
             return json.dumps(results)
     except Exception as e:
+        update_scan(userid, scan_name)
         log.logger.error(e)
 
 app.wsgi_app = ProxyFix(app.wsgi_app)
