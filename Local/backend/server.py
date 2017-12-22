@@ -144,6 +144,23 @@ VALUES("%s","%s","%s","%s","1","%s");''' %(username, userdiction, be_record, be_
                 save_path = os.path.abspath(os.path.join(path, filename))#上传文件路径
                 upld_file.save(save_path)#保存文件
 
+                cp_path = "/home/backdoor/" + username
+                scan_path = os.path.abspath(os.path.join(cp_path, scan_name))
+
+                if not os.path.exists(scan_path):
+                    os.makedirs(scan_path, mode=0777)
+
+                if not os.path.exists(cp_path):
+                    os.makedirs(cp_path, mode=0777)
+                    cmd = 'sudo cp %s -a %s' % (save_path, scan_path)
+                    p = os.popen(cmd)
+                    p.close()
+                else:
+                    cmd = 'sudo cp %s -a %s' % (save_path, scan_path)
+                    p = os.popen(cmd)
+                    p.close()
+
+
                 t = str(int(time.time()))
                 new_fname = hashlib.sha224(open(save_path, 'rb').read()+t).hexdigest()+'.zip'
                 new_path = os.path.abspath(os.path.join(path, new_fname))
