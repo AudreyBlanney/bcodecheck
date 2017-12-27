@@ -185,7 +185,10 @@ def scan_all(scan_path, repo_path, repo_type, task_name, upinfo_id, sumid):
     # 统计源码总行数
     if os.path.exists(os.path.dirname(scan_path)):
         cou = os.popen('cloc %s'% scan_path+'.zip').read()
-        count = int(cou.split()[-2])
+        if int(cou.split()[0]) == 0:
+            count = 0
+        else:
+            count = int(cou.split()[-2])
 
     counter_end = time.clock()
     file_type = list(set(file_types))
