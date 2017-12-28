@@ -237,6 +237,7 @@ def parse_rips_report(path, report_name):
                 php_issue["signature"] = base64.b64encode(php_issue["warning_type"])
                 php_issue["location"] = ""
                 php_issue["user_input"] = []
+                php_issue["remediation"] = ""
                 userinputs = bs.BeautifulSoup(str(p_issue_details[i][j])).findAll(attrs={'class':'userinput'})
                 for userinput in userinputs:
                     count = 0
