@@ -166,10 +166,11 @@ def scan_all(scan_path, repo_path, repo_type, task_name, upinfo_id, sumid):
             line = result["line"]#漏洞行号
             message = result["message"]#缺陷描述
             link = result["link"]#修改建议
+            rem = result['remediation']  # 参考规范
 
             sql = '''INSERT INTO obsec_scan_data (summary_id,leak_name,file_type_name,leak_grade,leak_file_pos,
-    code_part,leak_defect_des,leak_modify_sug,leak_line_num) VALUES ("%s","%s","%s","%s","%s",concat("%s"),concat("%s"),
-    concat("%s"),"%s")''' %(int(sumid),waring_type,file_type,severity,new_file,code,message,link,line)
+    code_part,leak_defect_des,leak_modify_sug,leak_line_num,remediation) VALUES ("%s","%s","%s","%s","%s",concat("%s"),concat("%s"),
+    concat("%s"),"%s",concat("%s"))''' %(int(sumid),waring_type,file_type,severity,new_file,code,message,link,line,rem)
             execute_db(sql)
 
             l = l + 1

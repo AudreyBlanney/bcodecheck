@@ -57,6 +57,7 @@ def gitrob_scan(root_path, rules_path):
                     gitrob_issue['location'] = 'n/a'
                     gitrob_issue['user_input'] = 'n/a'
                     gitrob_issue['render_path'] = 'n/a'
+                    gitrob_issue['remediation'] = 'n/a'
                     if isUnique(gitrob_issues, gitrob_issue['file'], gitrob_issue['line']):
                         gitrob_issues.append(gitrob_issue)
                         flag = False

@@ -159,6 +159,7 @@ class Scanner(object):
                     issue["severity"] = str(rule["severity"].encode('utf-8'))
                     issue["plugin"] = self.plugin_name
                     issue["signature"] = str(rule["signature"])
+                    issue["remediation"] = str(rule["remediation"])
                     issue["location"] = ''
                     issue["user_input"] = ''
                     issue["render_path"] = ''

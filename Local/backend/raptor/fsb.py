@@ -141,6 +141,7 @@ def scan_line(delim_line, fpath, root_path):
                     fsb_issue['severity'] = str(rule['severity'].encode('utf-8'))
                     fsb_issue['plugin'] = str(fsb_rules['plugin_type'])
                     fsb_issue['signature'] = str(rule['signature'])
+                    fsb_issue['remediation'] = str(rule['remediation'])
                     fsb_issue['location'] = ''
                     fsb_issue['user_input'] = ''
                     fsb_issue['render_path'] = ''

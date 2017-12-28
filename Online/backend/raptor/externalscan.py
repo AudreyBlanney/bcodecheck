@@ -81,6 +81,7 @@ def parse_scanjs_report(app_path, report):
             js_issue["severity"] = "中"
             js_issue["plugin"] = "scanjs"
             js_issue["signature"] = base64.b64encode(str(issue['rule']['source']))
+            js_issue["remediation"] = str(issue["remediation"])
             js_issue["location"] = ''
             js_issue["user_input"] = ''
             js_issue["render_path"] = ''
@@ -136,6 +137,7 @@ def parse_brakeman_report(root_path, app_path, report):
         ror_issue["location"] = str(json.dumps(item['location']))
         ror_issue["user_input"] = str(item['user_input'])
         ror_issue["render_path"] = str(item['render_path'])
+        ror_issue["remediation"] = str(item["remediation"])
         if isUnique(total_issues, ror_issue["file"], ror_issue["line"], ror_issue["message"]):
             total_issues.append(ror_issue)
     os.remove(report)
