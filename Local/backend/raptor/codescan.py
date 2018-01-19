@@ -147,7 +147,7 @@ class Scanner(object):
             issue = {}
             if rule["enabled"] == "true":
                 rule_signature = base64.b64decode(rule["signature"])
-                pattern = re.compile(rule_signature, re.IGNORECASE)
+                pattern = re.compile(rule_signature, re.I|re.M|re.S)
                 if pattern.search(line_content):
                     issue["warning_type"] = str(rule["title"].encode('utf-8'))
                     issue["warning_code"] = str(rule["id"])
