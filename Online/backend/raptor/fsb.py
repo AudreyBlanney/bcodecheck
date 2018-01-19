@@ -127,13 +127,12 @@ def scan_line(delim_line, fpath, root_path):
     for rule in fsb_rules['rules']:
         if rule['enabled'] == 'true':
             rule_signature = base64.b64decode(rule['signature'])
-            pattern = re.compile(rule_signature, re.IGNORECASE)
+            pattern = re.compile(rule_signature, re.I|re.M|re.S)
             if pattern.search(line_content) and not (line_content.strip().startswith('//') or line_content.strip().startswith('/*')):
                 if match_condition(fpath, rule) or scan_localImports(get_localImports(fpath), rule, root_path):
                     fsb_issue['warning_type'] = str(rule['title'].encode('utf-8'))
                     fsb_issue['warning_code'] = str(rule['id'])
                     fsb_issue['message'] = str(rule['description'].encode('utf-8'))
-                    # fsb_issue['file'] = re.sub('\/var\/raptor\/(clones|uploads)\/[a-zA-Z0-9]{56}\/', '', fpath.replace(os.getcwd(), '').replace(root_path, ''))
                     fsb_issue['file'] = re.sub('\/var\/raptor\/uploads\/[a-zA-Z0-9]{56}\/', '', fpath.replace(os.getcwd(), '').replace(root_path, ''))
                     fsb_issue['line'] = int(line_num) + 1
                     fsb_issue['link'] = str(rule['link'])
