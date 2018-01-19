@@ -12,8 +12,9 @@ import sys;
 sys.path.append("../")
 from config import execute_db,fetchall_db
 
-rulepacks = ['common', 'android', 'php', 'actionscript','asp','c','csharp','ruby','ObjectiveC']
-plugin_rulepacks = ['fsb_android', 'fsb_injection', 'fsb_crypto', 'fsb_endpoint', 'fsb_privacy', 'gitrob']
+rulepacks = ['common', 'android', 'php', 'actionscript','asp','New_javasca-0','New_javasca-1']
+#rulepacks = ['common', 'android', 'php', 'actionscript','asp','c','csharp','ruby','ObjectiveC','New_javasca-0','New_javasca-1']
+plugin_rulepacks = ['fsb_android', 'fsb_injection', 'fsb_crypto', 'fsb_endpoint', 'fsb_privacy','CNew_javasca']
 
 json = {
     "scan_info": {
@@ -73,8 +74,6 @@ def scan_all(scan_path, repo_path, repo_type, task_name, upinfo_id, sumid):
         report_path = scan_path + '/%s_report.json' % rulepack
         log.logger.debug('scanning with [%s] rulepack' % (rulepack))
         result = Scanner(scan_path, rule_path, report_path, all_file*len(rulepacks))
-        # import pdb
-        # pdb.set_trace()
         #文件扫描
         i = i+1
         per = i * 50 / len(rulepacks)
@@ -165,8 +164,8 @@ def scan_all(scan_path, repo_path, repo_type, task_name, upinfo_id, sumid):
 
             line = result["line"]#漏洞行号
             message = result["message"]#缺陷描述
-            link = result["link"]#修改建议
-            rem = result['remediation']  # 参考规范
+            link = result["remediation"]#修改建议
+            rem = result['link']  # 参考规范
 
             sql = '''INSERT INTO obsec_scan_data (summary_id,leak_name,file_type_name,leak_grade,leak_file_pos,
     code_part,leak_defect_des,leak_modify_sug,leak_line_num,remediation) VALUES ("%s","%s","%s","%s","%s",concat("%s"),concat("%s"),
